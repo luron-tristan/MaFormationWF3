@@ -31,11 +31,12 @@ console.log(bonjour);
 
         /*--------------------------------------------------|
         |~ ~ ~ ~ ~ ~ ~ document.getElementsByClassName      |
-        |----------------------------------------------
-        |   document.getElementByClassName() : C'est une 
-        fonction qui va permettre dfe récupérer un ou
-        plusieurs éléments (une liste) HTML à partir
-        de leur classe.*/
+        |---------------------------------------------------|
+        |   document.getElementByClassName() : C'est une    |
+        |   fonction qui va permettre dfe récupérer un ou   |
+        |   plusieurs éléments (une liste) HTML à partir    |
+        |   de leur classe.                                 |
+        |--------------------------------------------------*/
 
 var contenu = document.getElementsByClassName("contenu");
 console.log(contenu);
@@ -43,13 +44,14 @@ console.log(contenu);
 // -- Me renvoie : un tableau JS avec mes éléments HTML, ou ecncore autrement dit, une collection d'éléments HTML.
 
 
-        /*-----------------------------------------------------
-        |~ ~ ~ ~ ~ ~ ~ document.getElementsByTagName
-        |------------------------------------------------------
-        |   document.getElementByTagName() : C'est une 
-        fonction qui va permettre dfe récupérer un ou
-        plusieurs éléments (une liste) HTML à partir
-        de leur *nom de balise*.*/
+        /*-----------------------------------------------------|
+        |~ ~ ~ ~ ~ ~ ~ document.getElementsByTagName ~ ~ ~ ~ ~ |
+        |------------------------------------------------------|
+        |   document.getElementByTagName() : C'est une         |
+        |   fonction qui va permettre dfe récupérer un ou      |
+        |   plusieurs éléments (une liste) HTML à partir       |
+        |   de leur *nom de balise.                            |
+        |-----------------------------------------------------*/
 
 var span = document.getElementsByTagName("span");
 console.log(span)
