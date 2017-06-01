@@ -105,6 +105,6 @@ $(function() {
             if(function ajouterContact(){}
                 function reinitialisationDuFormulaire(){}
                 function afficheuneNotification(){}
-              )
+              
 
 }); // -- Fin de jQuery ready !
