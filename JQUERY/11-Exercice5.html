@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercice 5</title>
+    <link rel="stylesheet" href="">
+    <style>
+        main {width: 1000px; margin: 0 auto;}
+        section {
+            width: 100%; 
+            height: auto; 
+            min-height: 200px; 
+            margin-bottom: 10px; 
+            background-image: linear-gradient(0deg, #ccc, #fff); 
+            border: 1px solid #ccc;
+        }
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: normal;
+            text-align: center;
+            color: #000;
+        }
+        article {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            padding: 20px
+        }
+        input[type=text] {
+            width: 100%;
+            height: 30px;
+            background-image: linear-gradient(0deg, #eee 0%, #fff 100%);
+            border: 1px solid #eee;
+            font-family: 'Roboto Slab', serif;
+            font-size: 14px;
+            text-indent: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <input type="text" placeholder="Saisissez un terme à surligner..." id="markjs">
+            <!--
+            <section>
+            <header>
+                 <h1>Lorem</h1>
+            </header>
+            <article>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure maxime dolorem, impedit aspernatur hic sint? Provident veritatis officiis aperiam dolor, nesciunt ipsa quos. Quod maxime, nisi atque est quae beatae!
+            </article>
+        </section>
+        <section>
+            <header>
+                 <h1>Ipsum</h1>
+            </header>
+            <article>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure maxime dolorem, impedit aspernatur hic sint? Provident veritatis officiis aperiam dolor, nesciunt ipsa quos. Quod maxime, nisi atque est quae beatae!
+            </article>
+        </section> -->
+    </main>
+    
+    <!-- CONSIGNE : Avec l'aide de jQuery, vous devrez :
+
+        1. Définir une structure HTML5 et CSS3 pour afficher des articles.
+
+        2. Afficher une liste d'articles à partir de l'API :
+        https://jsonplaceholder.typicode.com/posts
+
+        3. BONUS : Afficher uniquement les 10 premiers articles.
+
+        4. Bonus : Mettre en place markjs.io afin de surligner des mots dans les différents articles à l'aide d'un champ input.
+
+    -->
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.10.1/jquery.mark.es6.js">
+        </script>
+
+        <!--Mon exercice-->
+        <!--<script>
+        $(function()    {
+            for(var i = 1 ; i <= 10 ; i++){
+            // Récupérer les données de l'API
+            var root = 'https://jsonplaceholder.typicode.com';
+            $.ajax({
+            url: root + '/posts/' + i,
+            method: 'GET'
+            }).then(function(data){
+            console.log(data);
+            $('<section>' + '<header>'+ '<h1>').text(data.title).appendTo($('main'));
+            $('<article>').text(data.body).appendTo($('section'));
+            });
+            }
+            //  Les afficher sur ma page
+
+            });
+        </script>-->
+
+        <script>
+            // -- 1. Récupération des articles
+            $.getJSON('https://jsonplaceholder.typicode.com/posts', function(articles) {
+                // -- Aperçu dans la console
+                console.log(articles);
+
+        //         // A. 1e solution : la boucle For
+        //         for(i = 0 ; i < 10 ; i++) {
+
+        //             //  Je réupère à chaque itération de ma boucle, un objet (article)
+        //             let article = articles[i];
+
+        //             // -- Affichage dans mon HTML
+        //             $(`<section>
+        //     <header>
+        //          <h1>${article.title}</h1>
+        //     </header>
+        //     <article>${article.body}</article>
+        // </section>`).appendTo($('main'));
+        //         }
+
+                    // -- B. 2e solution : La boucle Each
+                    $.each(articles, function(i, article) {
+
+                        // -- Ecriture dans la page HTML
+                        $(` <section>
+                            <header>
+                            <h1>${article.title}</h1>
+                            </header>
+                            <article>${article.body}</article>
+                            </section>`).appendTo($('main'));
+
+                        // -- Si mon indice i = 5 alors j'arrête l'exécution de ma fonction.
+                        if(i == 5) {
+                            return false;
+                        }
+                    }); // -- Fin du GetJSON
+
+                    // -- Mark-JS
+                    $('#markjs').on('input', function(e) {
+                        // -- Cette fonction va s'exécuter à chaque fois que l'utilisateur va lever son doigt d'une touche du clavier.
+
+                        // -- Récupérer la valeur saisie par l'utilisateur
+                        let keyword = $(this).val();
+
+                        // -- https://markjs.io/#mark & https://markjs.io/#unmark
+                        $('section').unmark().mark(keyword);
+                    })
+
+            }); // -- Fin de jQuery
+                        
+        </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <!-- Encodage des caractères -->
+        <meta charset="UTF-8">
+        
+        <!-- Affichage du site sans zoom, initialsé à 100% -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Pour IE, s'assurer qu'il utilise la dernière version de son moteur de rendu -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- HTML5Shiv -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+
+        <!-- Respond.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+
+        <!-- Titre de la page -->
+        <title>La grille Bootstrap</title>
+
+        <style>
+            [class*="col-"] {
+                background-color: rgba(86, 61, 124, 0.15);
+                border: 1px solid rgba(86, 61, 124, 0.2);
+                padding-bottom: 15px;
+                padding-top: 15px;
+                margin-bottom: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Le container va inclure l'ensemble de nos lignes et colonnes -->
+        <!-- BOOTSTRAP propose 2 containers : .container et .container-full -->
+        <main class="container">
+
+            <!-- Création  d'une ligne -->
+            <div class="row">
+
+                <!-- Dans votre ligne (ou rangée), vous pouvez créer plusieurs colonnes, mais toujours sur la base de 12 colonnes. -->
+
+                <!-- Une grande colonne de 12 -->
+                <div class="col-lg-12">col-lg-12</div>
+
+                <!-- Deux colonnes côte à côte -->
+                <div class="col-lg-6">col-lg-6</div>
+                <div class="col-lg-6">col-lg-6</div>
+                
+                <!-- Trois colonnes côte à côte -->
+                <div class="col-lg-4">col-lg-4</div>
+                <div class="col-lg-4">col-lg-4</div>
+                <div class="col-lg-4">col-lg-4</div>
+
+                <!-- Quatre colonnes côte à côte -->
+                <div class="col-lg-3">col-lg-3</div>
+                <div class="col-lg-3">col-lg-3</div>
+                <div class="col-lg-3">col-lg-3</div>
+                <div class="col-lg-3">col-lg-3</div>
+
+                <!-- Je peux imbriquer mes rangées -->
+                <div class="col-lg-12">
+                    col-lg-12
+                    <div class="row">
+                        <div class="col-lg-4">col-lg-4</div>
+                        <div class="col-lg-8">
+                            col-lg-8
+                            <div class="row">
+                                <div class="col-lg-6">col-lg-6</div>
+                                <div class="col-lg-6">
+                                    <img class="img-responsive img-rounded img-thumbnail" src="http://lorempixel.com/400/200/" alt="Illustration">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- ./div.row -->
+
+                <!--
+                    PLUSIEURS TYPES DE COLONNES :
+
+                        lg : Ecran large
+                        md : Ecran moyen (medium)
+                        sm : Ecran réduit (small)
+                        xs : Petit écran (x-small)
+                -->
+
+                <div class="row"></div>
+
+        </main>
+        
+        <!-- jQuery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap JS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </body>
+</html>
