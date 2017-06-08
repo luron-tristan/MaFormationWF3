@@ -27,7 +27,7 @@ export class AppComponent {
     username : 'hugoliegeard'
   }
 
-  // -- Je travail avec des Contacts
+  // -- Je travaille avec des Contacts
   contacts: Contact[] = [
     { id:1, fullname:'Hugo LIEGEARD', username:'hugoliegeard'},
     { id:2, fullname:'Tanguy MANAS', username:'tanguymanas'},
@@ -42,5 +42,17 @@ export class AppComponent {
     this.contactActif = contactClic;
     console.log(this.contactActif);
   }
+
+  // -- Si unContactEstCree, j'appelle ma fonciotn ajouterContactDansListe
+  ajouterContactDansListe(event) {
+    // -- Aperçu dans la console
+    console.log(event);
+
+    // -- Insertion du contact dans le tableau de contacts
+    this.contacts.push(event.contact);
+
+    // -- Insertion dans le localstorage, BDD...
+  }
+
 
 }

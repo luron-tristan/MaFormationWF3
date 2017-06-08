@@ -24,6 +24,9 @@
 
         </div> <!-- ./ IFcontacts -->
 
+        <!-- J'écoute ici l'évènement unCOntactEstCree, lorsqu'il ezzst émis, j'appelle la fonction ajouterContactDansListe -->
+        <app-ajouter-contact (unContactEstCree)="ajouterContactDansListe($event)"></app-ajouter-contact>
+
       </div> <!-- ./ col-sm-4 -->
 
       <div class="col-sm-8">
@@ -35,7 +38,7 @@
           *ngIf="!contactActif">
 
           <span class="glyphicon glyphicon-hand-left"></span>
-          <h2>Bienvenue, choisissez un contact</h2>
+          <h2>Bienvenue, veuillez choisir un contact</h2>
 
         </div> <!-- ./ jumbotron -->
 
