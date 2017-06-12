@@ -1,0 +1,68 @@
+/***************************** GENERAL *****************************/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merienda', cursive;
+}
+
+/***************************** HEADER *****************************/
+nav {
+    background: #061339;
+}
+nav a {
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: none;
+}
+nav h2 {
+    color: #fff;
+    font-size: 25px;
+    margin: 10px 0;
+}
+div.titre {
+    background-color: #b9cdff;
+    background-image: url('../img/background.jpg');
+}
+div.titre h1 {
+    color: #fff;
+    margin: 0;
+    padding: 60px 0;
+    text-shadow: 2px 2px #555;
+    font-size: 40px;
+}
+
+/***************************** SECTION *****************************/
+div#form-carousel {
+    margin-top: 20px;
+}
+div.carousel-caption p {
+    font-size: 20px;
+}
+section h3 {
+    color: #2F4073;
+}
+#section1 {
+    margin-bottom: 0;
+}
+#section2 {
+    background: #dedede;
+}
+#section2 div.image {
+    background: #7885A5;
+    padding: 0;
+}
+#section2 div.image img {
+    margin: 0;
+    padding: 0;
+}
+#section2 div.image:hover {
+    background: #061339;
+}
+
+/***************************** SECTION *****************************/
+footer {
+    background: #061339;
+    color: #fff;
+}
+footer p {
+    padding: 5px;
+}
