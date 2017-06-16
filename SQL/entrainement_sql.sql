@@ -1,5 +1,6 @@
 -- Ceci est un commentaire sur une ligne
-
+-- Démarrer la console : démarrer : 'cmd'
+-- Lancer MySQL : C:\xampp\mysql\bin> mysql --user=root --password=
 -- Pour créer une base de données
 CREATE DATABASE wf3_entreprise;
 
@@ -31,7 +32,7 @@ SELECT id_employes, nom, prenom, sexe, service, date_embauche, salaire FROM empl
 SELECT * FROM employes;
 
 -- Uniquement les prénoms et les noms
-SELECT prenom, nom from employes;
+SELECT prenom, nom FROM employes;
 
 -- Afficher tous les services
 SELECT service FROM employes;
@@ -109,7 +110,7 @@ SELECT MAX(salaire) FROM employes;
 -- Afficher le nom, le prénom de l'employé ayant le salaire le plus petit
 -- /!\ La requête suivante est FAUSSE
 SELECT nom, prenom, MIN(salaire) FROM employes;
--- En effet, le MIN() bloque la requpete car MIN() ne peut renvoyer qu'une seule ligne. Du coup, on récupère lepremier nom, prenom de la table et le salaire minimum qui ne correspond pas forcément au nom, prénom.
+-- En effet, le MIN() bloque la requpete car MIN() ne peut renvoyer qu'une seule ligne. Du coup, on récupère le premier nom, prenom de la table et le salaire minimum qui ne correspond pas forcément au nom, prénom.
 -- Pour avoir la bonne information, dans ce cas précis nous pouvons utiliser ORDER BY avec LIMIT
 SELECT nom, prenom, salaire FROM employes ORDER BY salaire ASC LIMIT 0, 1;
 /*  +--------+--------+---------+
@@ -229,7 +230,7 @@ SELECT service, COUNT(*) FROM employes GROUP BY service HAVING COUNT(*) > 2;
 	| informatique |        3 |
 	| secretariat  |        3 |
 	+--------------+----------+  */
--- Le nombre d'emplyes (femme uniquement) par service
+-- Le nombre d'employes (femme uniquement) par service
 SELECT service, COUNT(*) FROM employes WHERE sexe='f' GROUP BY service;
 /*  +---------------+----------+
 	| service       | COUNT(*) |
