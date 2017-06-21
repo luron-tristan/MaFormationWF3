@@ -309,7 +309,7 @@ echo substr($texte, 0, 50) . " ... <a href='#'>Lire la suite</a>";
 // substr:
     // substr permet de découper une chaine
         // 1er argument => la chaine à découper
-        // 2e argument  => la positio de départ
+        // 2e argument  => la position de départ
         // 3e argument  => le nombre de caractères à renvoyer. (cet argument est facultatif, s'il n'est pas présent on récupère tout depuis la position de départ)
 
 echo '<h1>Fonction utilisateur</h1>';
@@ -644,10 +644,12 @@ $couleur['r'] = 'rouge';
 $couleur['v'] = 'vert';
 $couleur['p'] = 'pourpre';
 echo '<pre>'; var_dump($couleur); echo '</pre>';
-echo $couleur['b'] . '<br>';
+echo $couleur['b'] . '<br><br>';
 
 
-
+// Pour connaître la taille d'un tableau (combien d'éléments dans le tableau array)
+echo 'Taille du tableau $couleur: ' . count($couleur) . '<br>';
+echo 'Taille du tableau $couleur: ' . sizeof($couleur) . '<br>';
 
 
 
