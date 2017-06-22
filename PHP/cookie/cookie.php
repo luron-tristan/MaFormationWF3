@@ -4,12 +4,25 @@ if(isset($_GET['langue']))
 {
     $langue = $_GET['langue']; // Choix de l'utilisateur
 }
-else {
-    $langue = 'fr'; // Cas par défaut
+elseif(isset($_COOKIE['langue']))
+{
+    $langue = $_COOKIE['langue'];
 }
+else
+{
+    $langue = 'fr'; // Cas par défaut
+    // echo 'langue du navigateur: ' . substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) . '<br>';
+}
+// /!\ On ne manipule rien sans avoir testé avant si cela existe
 
+// Nombre de secondes dans une année
+$un_an = 365 * 24 * 3600; // nb_de_jours*nb_heures*nb_secondes
+
+// Création d'un cookie sur le poste utilisateur
+// /!\ La fontion setCookie doit être appelée avant le moindre affichage dans la page !
+// Pour générer un cookie: 3 arguments setCookie(nom, valeur, duree_de_vie)
+setCookie("langue", $langue, time()+$un_an); 
 ?>
-
 
 <!DOCTYPE html>
   <head>
@@ -62,36 +75,44 @@ else {
             <div class="col-sm-6 col-sm-offset-3">
                 <hr>
                 <ul>
-                    <li><a href="?pays=fr">France</a>
-                    <li><a href="?pays=es">Espagne</a>
-                    <li><a href="?pays=it">Italie</a>
-                    <li><a href="?pays=en">Angleterre</a>
+                    <li><a href="?langue=fr">France</a>
+                    <li><a href="?langue=es">Espagne</a>
+                    <li><a href="?langue=it">Italie</a>
+                    <li><a href="?langue=en">Angleterre</a>
                 </ul>
             </div>
         </div>
+<?php
+// Affichage d'un texte selon la langue
+switch($langue) // On teste la valeur de $langue
+{
+    case 'fr':
+        echo '<P>Bonjour,<br> vous visitez le site en langue française</p>';
+    break;
+    case 'en':
+        echo '<P>Hello,<br> vous visitez le site en langue anglaise</p>';
+    break;
+    case 'it':
+        echo '<P>Ciao,<br> vous visitez le site en langue italienne</p>';
+    break;
+    case 'es':
+        echo '<P>Hola,<br> vous visitez le site en langue espagnole</p>';
+    break;
+    default:
+        echo '<p>Langue inconnue</p>';
+    break;
+}
+
+// echo'<pre>'; print_r($_SERVER); echo'</pre>';
+// Il est possible de récupérer la langue du navigateur de l'utilisateur
+$langue = 'fr'; // Cas par défaut
+echo 'langue du navigateur: ' . substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) . '<br>';
+echo time(); // time() affiche la valeur du time stamp
+echo '<pre>'; print_r($_COOKIE); echo '</pre>';
+?>
     </div><!-- /.container -->
 
-    <?php
-        // Affichage d'un texte selon la langue
-        switch($langue) // On teste la valeur de $langue
-        {
-            case 'fr':
-                echo '<P>Bonjour,<br> vous visitez le site en langue française</p>';
-            break;
-            case 'en':
-                echo '<P>Hello,<br> vous visitez le site en langue anglaise</p>';
-            break;
-            case 'it':
-                echo '<P>Ciao,<br> vous visitez le site en langue italienne</p>';
-            break;
-            case 'es':
-                echo '<P>Hola,<br> vous visitez le site en langue espagnole</p>';
-            break;
-            default:
-                echo '<p>Langue inconnue</p>';
-            break;
-        }
-    ?>
+    
 
 
 
