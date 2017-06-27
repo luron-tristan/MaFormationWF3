@@ -48,27 +48,26 @@ if($_POST){
 
     if(isset($_POST['pseudo']) && isset($_POST['message']))
     {
-        $pseudo = $_POST['pseudo'];
-        $message = $_POST['message'];
+        if(!empty($_POST['pseudo']) && !empty($_POST['message']))
+        {
+            $pseudo = $_POST['pseudo'];
+            $message = $_POST['message'];
 
-        echo 'Votre pseudo : <b>' . $pseudo . '</b><br>';
-        echo 'Votre commentaire : <b>' . $message . '</b><br>';
+            echo 'Votre pseudo : <b>' . $pseudo . '</b><br>';
+            echo 'Votre commentaire : <b>' . $message . '</b><br>';
 
-        $resultat = $pdo->prepare("INSERT INTO commentaire (pseudo, message, date) VALUES (:pseudo, :message, NOW())");
-        $resultat->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
-        $resultat->bindParam(":message", $message, PDO::PARAM_STR);
-        $resultat->execute();
-        
+            $resultat = $pdo->prepare("INSERT INTO commentaire (pseudo, message, date) VALUES (:pseudo, :message, NOW())");
+            $resultat->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
+            $resultat->bindParam(":message", $message, PDO::PARAM_STR);
+            $resultat->execute();
+
+
+        }
+        else{
+            echo "<p class='alert alert-danger <text-center></text-center>'>Veuillez remplir les champs pseudo et commmentaire.</p>";
+        }
     }
 }
-
-
-
-
-
-
-
-
 ?>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -94,7 +93,26 @@ if($_POST){
         </form>
     </div><!-- /.container -->
 
+<?php
+    echo "<h2 class='alert alert-info text-center'>Commentaires</h2>";
 
+      
+        $resultat = $pdo->prepare("SELECT * FROM commentaire WHERE pseudo = :pseudo AND message = :message ORDER BY date ASC");
+
+        $resultat->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
+        $resultat->bindParam(":message", $message, PDO::PARAM_STR);
+
+        $resultat->execute();
+        $donnees = $resultat->fetch(PDO::FETCH_ASSOC);
+
+        if(!empty($donnees))
+        {
+            echo 'pseudo : ' . $donnees['pseudo'];
+            echo 'Commentaire : ' . $donnees['message'];
+        }
+    
+
+?>
 
 
 

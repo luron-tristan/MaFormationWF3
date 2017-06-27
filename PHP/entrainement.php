@@ -711,7 +711,7 @@ echo '<h1>Les Objets</h1>';
 class Etudiant
 {
     public $prenom = 'Marie';
-    // public est un mot clé permettant de préciser que l'élément sera accessible directement sur l'objet. SInon il faudrait passer par des méthodes permettant de récupérer cette information ou de la modifier. (Il existe aussi protected / private / static)
+    // public est un mot clé permettant de préciser que l'élément sera accessible directement sur l'objet. Sinon il faudrait passer par des méthodes permettant de récupérer cette information ou de la modifier. (Il existe aussi protected / private / static)
     public $age = 25;
     public function pays()
     {

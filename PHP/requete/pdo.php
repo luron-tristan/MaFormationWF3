@@ -37,6 +37,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=wf3_entreprise', 'root', '', array(P
 // Arguments: 1 - (serveur + nom_bdd) 2 - identifiant 4 - mot de passe 4 - options
 // echo '<pre>'; var_dump($pdo); echo '</pre>';
 // echo '<pre>'; var_dump(get_class_methods($pdo)); echo '</pre>';
+// Objet représentant la connexion à la base de données.
 
 echo "<h1>2 - PDO: exec()</h1>";
 // insert
