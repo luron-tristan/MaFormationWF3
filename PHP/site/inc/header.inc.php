@@ -11,11 +11,11 @@
         <title>Ma boutique</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo URL; ?>css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="css/style.css" rel="stylesheet">
-        <link href=img/fav.png rel="icon">
+        <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
+        <link href="<?php echo URL; ?>img/fav.png" rel="icon">
     </head>
 
     <body>
