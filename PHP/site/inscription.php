@@ -7,7 +7,7 @@ if(utilisateur_est_connecte())
     header("location:profil.php");
 }
 
-// Déclaration de variables bodes pour affichage dans les values du formulaire
+// Déclaration de variables vides pour affichage dans les values du formulaire
 $pseudo     = "";
 $mdp        = "";
 $nom        = "";
@@ -18,7 +18,7 @@ $ville      = "";
 $cp         = "";
 $adresse    = "";
 
-// Contrôle sur l'existence de tous les champs provenant du formualire, sauf le bouton validation
+// Contrôle sur l'existence de tous les champs provenant du formulaire, sauf le bouton validation
 if(isset($_POST['pseudo']) && isset($_POST['mdp']) && isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['sexe']) && isset($_POST['ville']) && isset($_POST['cp']) && isset($_POST['adresse']))
 {   
     // Si le formulaire a été validé, on place dans ces variables les saisies correspondantes.
