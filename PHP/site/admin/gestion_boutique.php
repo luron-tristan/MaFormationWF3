@@ -1,6 +1,9 @@
 <?php
 require ("../inc/init.inc.php");
 
+// Dans phpMyAdmin, pour réinitialiser l'id_article :
+// ALTER TABLE `article` AUTO_INCREMENT=1
+
 // Restriction d'accès, si l'utilisateur n'est pas admin, alors il ne doit pas accéder à cette page.
 if(!utilisateur_est_admin())
 {
@@ -8,9 +11,42 @@ if(!utilisateur_est_admin())
     exit(); // permet d'arrêter l'exécution du script au cas où une personne maveillante ferait des injections via GET
 }
 
+// Mettre en place une condition pour savoir si l'utilisateur veut une suppression d'un produit
+if(isset($_GET['action']) && $_GET['action'] == 'suppression' && !empty($_GET['id_article']) && is_numeric($_GET['id_article']))
+{
+    // is_numeric permet de savoir si l'information est bien de valeur numerique, sans tenir compte de son type (les informations provenant de GET et de POST sont toujours de type string)
+
+    // On fait une requête pour récupérer les informations de l'article afin de connaitre la photo pour la supprimer
+    $id_article = $_GET['id_article'];
+    $article_a_supprimer = $pdo->prepare("SELECT * FROM article WHERE id_article = :id_article");
+    $article_a_supprimer->bindParam(":id_article", $id_article, PDO::PARAM_STR);
+    $article_a_supprimer->execute();
+
+    $article_a_suppr = $article_a_supprimer->fetch(PDO::FETCH_ASSOC);
+    // On vérifie si la photo existe
+    if(!empty($article_a_suppr['photo']))
+    {
+        // On vérifie le chemin si le ficher existe
+        $chemin_photo = RACINE_SERVEUR . 'photo/' . $article_a_suppr['photo'];
+        // $message = $chemin_photo;
+        if(file_exists($chemin_photo))
+        {
+            unlink($chemin_photo); // unlink() permet de supprimer un fichier sur le serveur.
+        }
+    }
+    $suppression = $pdo->prepare("DELETE FROM article WHERE id_article = :id_article");
+    $suppression->bindParam(":id_article", $id_article, PDO::PARAM_STR);
+    $suppression->execute();
+    $message .= "<div class='alert alert-success'>L'article numéro " . $id_article . " a bien été supprimé</div>" ;
+
+    // On bascule sur l'affichage du tableau
+    $_GET['action'] = 'affichage';
+
+}
+
 
 // Déclaration de variables vides pour affichage dans les values du formulaire
-$id_article      = "";
+$id_article     = "";
 $reference      = "";
 $categorie      = "";
 $titre          = "";
@@ -25,9 +61,35 @@ $photo_bdd      = "";
 // Déclaration d'une variable de contrôle
 $erreur = '';
 
+/**********************************************************************************
+                RECUPERATION DES INFORMATIONS D'UN ARTICLE A MODIFIER
+**********************************************************************************/
+if(isset($_GET['action']) && $_GET['action'] == 'modification' && !empty($_GET['id_article']) && is_numeric($_GET['id_article']))
+{
+    $id_article = $_GET['id_article'];
+    $article_a_modif = $pdo->prepare("SELECT * FROM article WHERE id_article = :id_article");
+    $article_a_modif->bindParam(":id_article", $id_article, PDO::PARAM_STR);
+    $article_a_modif->execute();
+    $article_actuel = $article_a_modif->fetch(PDO::FETCH_ASSOC);
+
+    $id_article     = $article_actuel['id_article'];
+    $reference      = $article_actuel['reference'];
+    $categorie      = $article_actuel['categorie'];
+    $titre          = $article_actuel['titre'];
+    $description    = $article_actuel['description'];
+    $couleur        = $article_actuel['couleur'];
+    $taille         = $article_actuel['taille'];
+    $sexe           = $article_actuel['sexe'];
+    $prix           = $article_actuel['prix'];
+    $stock          = $article_actuel['stock'];
+    // On récupère la photo de l'article dans une nouvelle variable
+    $photo_actuelle      = $article_actuel['photo'];
+}
+
+
 
 /**********************************************************************************
-                           ENREGISTREMENT DES PRODUITS
+                           ENREGISTREMENT DES ARTICLES
 **********************************************************************************/
 // Contrôle sur l'existence de tous les champs provenant du formulaire, sauf le bouton validation, l'id article et la photo
 if(isset($_POST['id_article']) && isset($_POST['reference']) && isset($_POST['categorie']) && isset($_POST['titre']) && isset($_POST['description']) && isset($_POST['couleur']) && isset($_POST['taille']) && isset($_POST['sexe']) && isset($_POST['prix']) && isset($_POST['stock']))
@@ -46,12 +108,12 @@ if(isset($_POST['id_article']) && isset($_POST['reference']) && isset($_POST['ca
 
 
 
-        // Contrôle sur la disponibilité de la référence en BDD
+        // Contrôle sur la disponibilité de la référence en BDD si on est dans le cas d'un ajout, car lors de la modif, la référence existera toujours
         $verif_ref = $pdo->prepare("SELECT * FROM article WHERE reference = :reference");
         $verif_ref->bindParam(":reference", $reference, PDO::PARAM_STR);
         $verif_ref->execute();
 
-        if($verif_ref->rowCount() > 0)
+        if($verif_ref->rowCount() > 0 && isset($_GET['action']) && $_GET['action'] == 'ajout')
         {
             $message.= "<div class='alert alert-danger' role='alert' style='margin-top: 20px;'>Attention, la référence est déjà utilisée.<br>Veuillez choisir une autre référence.</div>";
             $erreur= true;
@@ -70,6 +132,15 @@ if(isset($_POST['id_article']) && isset($_POST['reference']) && isset($_POST['ca
             $message .= "<div class='alert alert-danger' role='alert' style='margin-top: 20px;'>Veuillez choisir un titre à votre article.</div>";
             $erreur= true;
         }
+
+        // Récupération de l'ancienne photo dans le cas d'une modification
+        if(isset($_GET['action']) && $_GET['action'] == 'modification')
+        {
+            if(isset($_POST['ancienne_photo']))
+            {
+                $photo_bdd = $_POST['ancienne_photo'];
+            }
+        }        
 
         // Vérification si l'utilisateur a chargé une image
         if(!empty($_FILES['photo']['name']))
@@ -111,9 +182,21 @@ if(isset($_POST['id_article']) && isset($_POST['reference']) && isset($_POST['ca
         }
 
 
-        if(!$erreur)
+        if(!$erreur) // équivaut à if($erreur == false)
         {
-            $enregistrement = $pdo->prepare("INSERT INTO article (reference, categorie, titre, description, couleur, taille, sexe, prix, stock, photo) VALUES (:reference, :categorie, :titre, :description, :couleur, :taille, :sexe, :prix, :stock, :photo)");
+            if(isset($_GET['action']) && $_GET['action'] == 'ajout')
+            {
+                $enregistrement = $pdo->prepare("INSERT INTO article (reference, categorie, titre, description, couleur, taille, sexe, prix, stock, photo) VALUES (:reference, :categorie, :titre, :description, :couleur, :taille, :sexe, :prix, :stock, :photo)");
+                $message .= '<div class="alert alert-success">Votre article a bien été ajouté</div>';
+            }
+            elseif(isset($_GET['action']) && $_GET['action'] == 'modification')
+            {
+                $enregistrement = $pdo->prepare("UPDATE article SET reference = :reference, categorie = :categorie, titre = :titre, description = :description, couleur = :couleur, taille = :taille, sexe = :sexe, prix = :prix, stock = :stock, photo = :photo WHERE id_article = :id_article");
+                $id_article = $_POST['id_article'];
+                $enregistrement->bindParam(":id_article", $id_article, PDO::PARAM_STR);
+                $message .= '<div class="alert alert-success">Votre article a bien été modifié</div>';
+            }
+
             $enregistrement->bindParam(":reference", $reference, PDO::PARAM_STR);
             $enregistrement->bindParam(":categorie", $categorie, PDO::PARAM_STR);
             $enregistrement->bindParam(":titre", $titre, PDO::PARAM_STR);
@@ -147,13 +230,13 @@ echo '<pre>'; print_r($_FILES); echo '</pre>';
             <div class="starter-template">
                 <h1>Gestion boutique</h1>
                 <?php // echo $message; // messages dédiés à l'utilisateur ?>
-                <?= $message; // Cette balise php inclue un echo // cette ligne php est équivalente à la ligne au-dessus. ?>
+                <?= $message ;// Cette balise php inclue un echo // cette ligne php est équivalente à la ligne au-dessus. ?>
                 <hr>
                 <a href="?action=ajout" class="btn btn-primary">Ajouter un produit</a>
                 <a href="?action=affichage" class="btn btn-info">Afficher les produits</a>
             </div>
 
-            <?php if(isset($_GET['action']) && $_GET['action'] == 'ajout') { ?>
+            <?php if(isset($_GET['action']) && ($_GET['action'] == 'ajout' || $_GET['action'] == 'modification')) { ?>
             <div class="row">
                 <div class="col-xs-6 col-xs-push-3 well">
                     <form method="POST" action ="" enctype="multipart/form-data">
@@ -215,9 +298,26 @@ echo '<pre>'; print_r($_FILES); echo '</pre>';
                                 <option value="f" <?php if($sexe == 'f') { echo 'selected'; } ?> >Femme</option>
                             </select>
                         </div>
+
+                        <?php
+                        // Affichage de la photo actuelle dans le cas d'une modification d'article
+                            if(isset($article_actuel)) // Si cette variable existe alors nous sommes dans le cas d'une modification
+                            {
+                                echo '<div class="form-group">';
+                                echo '<label>Photo actuelle</label>';
+                                echo '<img src="' . URL . 'photo/' . $photo_actuelle . '" class="img-thumbnail" width="210">';
+                                // on crée un champ caché qui contiendra le nom de la photo afin de le récupérer lors de la validation du formulaire.
+                                echo '<input type="hidden" name="ancienne_photo" value="' . $photo_actuelle . '" >';
+                                echo '</div>';
+                            }
+
+
+
+                        ?>
+
                         <div class="form-group">
                             <label for="photo">Photo</label>
-                            <input type="file" name="photo" id = "photo" value="">
+                            <input type="file" name="photo" id="photo" value="">
                         </div>
                         <div class="form-group">
                             <label for="prix">Prix (en €)</label>
@@ -243,9 +343,10 @@ echo '<pre>'; print_r($_FILES); echo '</pre>';
             <?php if(isset($_GET['action']) && $_GET['action'] == 'affichage')
             {
                 $resultat = $pdo->query("SELECT * FROM article");
-
+                echo '<div class="row">';
+                echo '<div class="col-sm-12">';
                 // Balise ouverture du tableau
-                echo '<table border="1" style="width: 80%; margin: 0 auto; border-collapse: collapse; text-align: center;">';
+                echo '<table border="1" style="margin: 0 auto; border-collapse: collapse; text-align: center;">';
                 // Première ligne du tableau pour le nom des colonnes
                 echo '<tr>';
                 // récupération du nombre de colonnes dans la requête:
@@ -254,28 +355,50 @@ echo '<pre>'; print_r($_FILES); echo '</pre>';
                 for($i = 0; $i < $nb_col; $i++)
                 {
                     $colonne = $resultat->getColumnMeta($i); // On récupère les informations de la colonne en cours afin ensuite de demander le name
-                    echo '<th style="padding: 10px;">' . $colonne['name'] . '</th>';
+                    echo '<th class="text-center" style="padding: 10px;">' . $colonne['name'] . '</th>';
                 }
+                echo '<th class="text-center">Modif</th>';
+                echo '<th class="text-center">Suppr</th>';
                 echo '</tr>';
 
-                while($ligne = $resultat->fetch(pdo::FETCH_ASSOC))
+                while($article = $resultat->fetch(pdo::FETCH_ASSOC))
                     {
                         echo '<tr>';
-                        foreach($ligne AS $indice => $info)
+                        foreach($article AS $indice => $valeur)
                         {
+
+                        // <a data-fancybox="gallery" href="big_1.jpg"><img src="small_1.jpg"></a>
+
                             if($indice == 'photo')
+                            // {
+                            //     echo '<td style="padding: 10px;"><img class = "img-thumbnail" src = "' . URL . 'photo/' . $valeur . '" width="140"></td>';
+                            // } 
                             {
-                                echo '<td style="padding: 10px;"><img src = "' . URL . 'photo/' . $info . '" width="140"></td>';
+                                echo '<td style="padding: 10px;"><img class = "img-thumbnail" src = "' . URL . 'photo/' . $valeur . '" width="140"></td>';
+                            } 
+                            elseif($indice == 'description')
+                            {
+                                echo '<td>' . substr($valeur, 0, 56) . '...<a href="#">Voir la fiche produit</a></td>';
+                            }
+                            elseif($indice == 'prix')
+                            {
+                                echo '<td><span style ="color: red; padding: 10px;">' . $valeur . '€</span></td>';
                             }
                             else {
-                                echo '<td style="padding: 10px;">' . $info . '</td>';
+                                echo '<td>' . $valeur . '</td>';
                             }
                         }
+                        echo '<td style="padding: 5px"><a href="?action=modification&id_article=' . $article['id_article'] . '" class="btn btn-warning"><span class="glyphicon glyphicon-refresh"></span></a></td>';
+
+                        echo '<td style="padding: 5px"><a onclick="return(confirm(\'Etes-vous sûr ?\'));" href="?action=suppression&id_article=' . $article['id_article'] . '" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a></td>';
                         echo '</tr>';
                     }
-                echo '</table><br><hr>';
+                echo '</table>';
+                echo '</div>';
+                echo '</div><br><hr>';                
                 }
             ?>
+
             
 
 

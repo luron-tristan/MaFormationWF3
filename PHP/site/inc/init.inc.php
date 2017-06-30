@@ -8,6 +8,8 @@ require_once("function.inc.php");
 // Création de variables pouvant nous servir dans le cadre du projet:
 // Variable pour afficher des messages à l'utilisateur
 $message = "";
+// $message1 = "<div class='alert alert-success'>" . $message . "</div>";
+// $message2 = "<div class='alert alert-danger'>" . $message . "</div>";
 
 // Ouverture de la session
 session_start();
