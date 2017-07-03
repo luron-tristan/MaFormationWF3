@@ -9,6 +9,10 @@
             </button>
             <a class="navbar-brand" href="<?php echo URL; ?>boutique.php">Ma boutique</a>
         </div>
+        <?php // On recupere l'URL de la page pour ensuite affecter class = "active" aux liens de nav
+            $page = $_SERVER['REQUEST_URI'];
+            $page = str_replace("/site/", "", $page);
+        ?>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
 
@@ -19,13 +23,13 @@
                 if(!utilisateur_est_connecte())
                 {
             ?>
-                <li><a href="<?php echo URL; ?>inscription.php">Inscription</a></li>
-                <li><a href="<?php echo URL; ?>connexion.php">Connexion</a></li>
+                <li><a href="<?php echo URL; ?>inscription.php" <?php if($page == "inscription.php"){echo 'class="active"';} ?>>Inscription</a></li>
+                <li><a href="<?php echo URL; ?>connexion.php"<?php if($page == "connexion.php"){echo 'class="active"';} ?>>Connexion</a></li>
             <?php
                 } else {
             ?>
-                <li><a href="<?php echo URL; ?>profil.php">Profil</a></li>
-                <li><a href="<?php echo URL; ?>connexion.php?action=deconnexion">Déconnexion</a></li>
+                <li><a href="<?php echo URL; ?>profil.php"<?php if($page == "profil.php"){echo 'class="active"';} ?>>Profil</a></li>
+                <li><a href="<?php echo URL; ?>connexion.php?action=deconnexion"<?php if($page == "index.php"){echo 'class="active"';} ?>>Déconnexion</a></li>
             <?php
                 }
 
