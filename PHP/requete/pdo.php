@@ -43,6 +43,8 @@ echo "<h1>2 - PDO: exec()</h1>";
 // insert
 // $resultat = $pdo->exec("INSERT INTO employes (prenom, nom, sexe, service, salaire, date_embauche) VALUES ('prenomtest', 'nomtest', 'm', 'informatique', 2000, '2017-06-22')");
 // echo "nombre de lignes insérées dans la dernière requête: " . $resultat . '<br>';
+// Pour récupérer le dernier id inséré:
+// echo $pdo->lastInsertId();
 
 echo "<h1>3 - PDO QUERY => SELECT + FETCH (pour un seul résultat)</h1>";
 $resultat = $pdo->query("SELECT * FROM employes WHERE id_employes=350");

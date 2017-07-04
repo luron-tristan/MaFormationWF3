@@ -11,6 +11,8 @@ $message = "";
 // $message1 = "<div class='alert alert-success'>" . $message . "</div>";
 // $message2 = "<div class='alert alert-danger'>" . $message . "</div>";
 
+$erreur = "";
+
 // Ouverture de la session
 session_start();
 
