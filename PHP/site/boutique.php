@@ -2,15 +2,43 @@
 require ("inc/init.inc.php");
 
 $liste_article = $pdo->query("SELECT DISTINCT * FROM article");
-$liste_categorie = $pdo->query("SELECT DISTINCT categorie FROM article");
 
-
-// Requête de récupération de tous les produits
-if(empty($_GET['categorie']))
+// requête de récupération de tous les produits
+if($_POST)
 {
-    $liste_article = $pdo->query("SELECT * FROM article");
+    $condition = "";
+    $arg_couleur = false;
+    $arg_taille = false;
+
+    if(!empty($_POST['couleur']))
+    {
+        $condition .= " WHERE couleur = :couleur ";
+        $arg_couleur = true;
+        $filtre_couleur = $_POST['couleur'];
+    }
+
+    if(!empty($_POST['taille']))
+    {
+        if($arg_couleur)
+        {
+            $condition .= " AND taille = :taille ";
+        }
+        else {
+        $condition .= " WHERE taille = :taille ";
+        }
+        $arg_taille = true;
+        $filtre_taille = $_POST['taille'];
+    }
+    $liste_article = $pdo->prepare("SELECT * FROM article $condition");
+    if($arg_couleur) // si $arg_couleur == true alors il faut fournir l'argument couleur
+    $liste_article->bindParam(':couleur', $filtre_couleur, PDO::PARAM_STR);
+    if($arg_taille) // si $arg_taille == true alors il faut fournir l'argument taille
+    $liste_article->bindParam(':taille', $filtre_taille, PDO::PARAM_STR);
+    $liste_article->execute();
 }
-else {
+
+elseif(!empty($_GET['categorie']))
+{
     $cat = $_GET['categorie'];
     $liste_article = $pdo->prepare("SELECT * FROM article WHERE categorie = :categorie");
     $liste_article->bindParam(":categorie", $cat, PDO::PARAM_STR);
@@ -18,11 +46,14 @@ else {
 }
 
 
+$liste_categorie = $pdo->query("SELECT DISTINCT categorie FROM article");
+$liste_couleur = $pdo->query("SELECT DISTINCT couleur FROM article ORDER BY couleur");
+$liste_taille = $pdo->query("SELECT DISTINCT taille FROM article ORDER BY taille");
+
 // La ligne suivante commence les affichages dans la page
 require ("inc/header.inc.php");
 require ("inc/nav.inc.php");
 ?>
-
 
         <div class="container">
 
@@ -43,6 +74,36 @@ require ("inc/nav.inc.php");
                         echo '<li class="list-group-item"><a href = "?categorie=' . $categorie['categorie'] . '">' . $categorie['categorie'] . 's</a></li>';
                     }
                     echo '</ul>';
+                    echo '<hr>';
+                    // Affichage couleur
+                    echo "<form action='' method='POST'>";
+                    echo   "<div class='form-group'>
+                            <label for='couleur'>Couleur</label>
+                            <select name='couleur' id='couleur' class='form-control'>;
+                            <option></option>";
+                    while($couleur = $liste_couleur->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo '<option>' . $couleur['couleur'] . '</option>';
+                    }
+                    echo '</select></div>';
+
+                    // Affichage taille
+                    echo   "<div class='form-group'>
+                            <label for='taille'>Taille</label>
+                            <select name='taille' id='taille' class='form-control'>;
+                            <option></option>";
+                    while($taille = $liste_taille->fetch(PDO::FETCH_ASSOC))
+                    {
+                        echo '<option>' . $taille['taille'] . '</option>';
+                    }
+                    echo '</select></div>';
+
+                    echo '<div class="form-group">
+                            <button type="submit" name="filtrer" id="filtrer" class="form-control btn btn-primary">Valider</button>
+                          </div>';
+
+
+                    echo '</form>';
                 ?>
             </div>
             

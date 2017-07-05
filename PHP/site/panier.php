@@ -107,24 +107,25 @@ require ("inc/nav.inc.php");
             </div>
 
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
+                <div class="col-sm-10 col-sm-offset-1">
                     <table class="table table-bordered" style="text-align: center;">
                         <tr>
                             <th colspan="6" class="text-center">Panier</th>
                         </tr>
                         <tr>
+                            <th class="text-center">Photo</th>
                             <th class="text-center">Article</th>
                             <th class="text-center">Titre</th>
-                            <th class="text-center">Quantité</th>
                             <th class="text-center">Prix unitaire (TTC)</th>
-                            <th class="text-center">Photo</th>
+                            <th class="text-center">Quantité</th>
+                            <th class="text-center">Prix total</th>
                             <th class="text-center">Action</th>
                         </tr>
                         <?php
                             // Vérification si le panier est vide sur n'importe quel tableau array du dernier niveau (id_article / prix / quantité / titre)
                             if(empty($_SESSION['panier']['id_article']))
                             {
-                                echo '<tr><th class="text-center alert alert-danger" colspan="6">Aucun article dans votre panier</th></tr>';
+                                echo '<tr><th class="text-center alert alert-danger" colspan="7">Aucun article dans votre panier</th></tr>';
                             }
                             else 
                             {
@@ -133,12 +134,13 @@ require ("inc/nav.inc.php");
                                 for($i = 0; $i < $taille_tableau; $i++)
                                 {
                                     echo '<tr>';
+                                        echo '<td><img src="' . URL . 'photo/' . $_SESSION['panier']['photo'][$i] . '" alt="Photo de l\'image" style="width: 50px;"></td>';
                                         echo '<td>' . $_SESSION['panier']['id_article'][$i] . '</td>';
                                         echo '<td>' . $_SESSION['panier']['titre'][$i] . '</td>';
-                                        echo '<td>' . $_SESSION['panier']['quantite'][$i] . '</td>';
-                                        echo '<td>' . number_format($_SESSION['panier']['prix'][$i], 2) . '</td>';
-                                        echo '<td><img src="' . URL . 'photo/' . $_SESSION['panier']['photo'][$i] . '" alt="Photo de l\'image" style="width: 50px;"></td>';
 
+                                        echo '<td>' . number_format($_SESSION['panier']['prix'][$i], 2) . '</td>';  
+                                        echo '<td>' . $_SESSION['panier']['quantite'][$i] . '</td>';
+                                        echo '<td>' . number_format($_SESSION['panier']['prix'][$i] * $_SESSION['panier']['quantite'][$i], 2, ',', ' ') . '</td>';  
                                         if(!empty($_SESSION['panier']['id_article']))
                                             {
                                                 echo '<td><a href="?action=retirer&id_article=' . $_SESSION['panier']['id_article'][$i] . '" class="btn btn-danger glyphicon glyphicon-trash"</td>';
@@ -151,8 +153,8 @@ require ("inc/nav.inc.php");
                                 $total = str_replace(',', ' ', $total);
                                 $total = str_replace('.', ',', $total);
                                 echo    '<tr>
-                                            <td colspan="4">Montant total <b>TTC</b></td>
-                                            <td colspan="2"><b>' . number_format(montant_total(), 2) . ' €</b></td>
+                                            <td colspan="5">Montant total <b>TTC</b></td>
+                                            <td colspan="1"><b>' . number_format(montant_total(), 2) . ' €</b></td>
                                         </tr>';
                                         
 
@@ -190,7 +192,7 @@ require ("inc/nav.inc.php");
                     if(utilisateur_est_connecte())
                     {
                         // Si l'utilisateur est connecté, on affiche son adresse de livraison
-                        echo '<address><b>Votre adresse de livraison est:</b><br>' . $_SESSION['utilisateur']['adresse'] . '<br>' . $_SESSION['utilisateur']['cp'] . '<br>' . $_SESSION['utilisateur']['ville'] . '</address>';
+                        echo '<address class="text-center"><b>Votre adresse de livraison est:</b><br>' . $_SESSION['utilisateur']['adresse'] . '<br>' . $_SESSION['utilisateur']['cp'] . '<br>' . $_SESSION['utilisateur']['ville'] . '</address>';
                     }
                     ?>
                 </div>

@@ -38,14 +38,17 @@ echo '<pre>'; print_r($article); echo '</pre>';
         <?php // echo $message; // messages destinés a l'utilisateur ?>
         <?= $message; // cette balise php inclu un echo // cette ligne php est equivalente a la ligne au dessus ?>
 
-        <div class="panel-heading" style="padding: 20px 210px">
+        <div class="panel-heading text-center">
             <img src=<?= URL . 'photo/' . $article['photo'] ?> alt="Photo de l'article">
 
         </div>
 
         <div class="col-md-12">
             <?php
-                echo '<hr><p>' . $article['description'] . '</p>';
+                echo '<hr><h3 class="text-center">' . $article['titre'] . '</h3>';
+                echo '<hr><p class="text-center">' . $article['description'] . '</p>';
+                echo '<hr><p class="text-center">Taille : ' . $article['taille'] . '</p>';
+                echo '<hr><p class="text-center">Couleur : ' . $article['couleur'] . '</p>';
                 echo '<hr>';
 
                 // On affiche le formulaire d'ajout si le stock est supérieur à zéro
@@ -76,7 +79,7 @@ echo '<pre>'; print_r($article); echo '</pre>';
                     echo '<h3>Rupture de stock pour ce produit</h3><hr>';
                 }
 
-                echo '<a href="boutique.php?categorie="' . $article['categorie'] . ' class="btn btn-primary form-control">Retour à la sélection</a>';
+                echo '<a href="boutique.php?categorie="' . $article['categorie'] . ' class="btn btn-primary form-control">Retour à la sélection</a><br><br>';
         
             ?>
 

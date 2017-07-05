@@ -277,7 +277,7 @@ echo '<pre>'; print_r($_FILES); echo '</pre>';
                                 <option value="rouge" <?php if($couleur == 'rouge') { echo 'selected'; } ?> >Rouge</option>
                                 <option value="vert" <?php if($couleur == 'vert') { echo 'selected'; } ?> >Vert</option>
                                 <option value="bleu" <?php if($couleur == 'bleu') { echo 'selected'; } ?> >Bleu</option>
-                                <option value="bleu" <?php if($couleur == 'rose') { echo 'selected'; } ?> >Rose</option>
+                                <option value="rose" <?php if($couleur == 'rose') { echo 'selected'; } ?> >Rose</option>
                             </select>
                         </div>
                         <div class="form-group">
