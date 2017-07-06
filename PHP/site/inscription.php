@@ -71,16 +71,16 @@ if(isset($_POST['pseudo']) && isset($_POST['mdp']) && isset($_POST['nom']) && is
     }
 
     // Contrôle sur la disponibilité du pseudo en BDD
-        $verif_pseudo = $pdo->prepare("SELECT * FROM membre WHERE pseudo = :pseudo");
-        $verif_pseudo->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
-        $verif_pseudo->execute();
+    $verif_pseudo = $pdo->prepare("SELECT * FROM membre WHERE pseudo = :pseudo");
+    $verif_pseudo->bindParam(":pseudo", $pseudo, PDO::PARAM_STR);
+    $verif_pseudo->execute();
 
-        if($verif_pseudo->rowCount() > 0)
-        {
-            // Si on obtient au moins 1 ligne de résultat, alors le pseudo est déjà pris.
-            $message.= "<div class='alert alert-danger' role='alert' style='margin-top: 20px;'>Attention, le pseudo n'est pas disponible.<br>Veuillez vérifier votre saisie.</div>";
-            $erreur = true; // Si on rentre dans cette condition, alors il y a une erreur.
-        }
+    if($verif_pseudo->rowCount() > 0)
+    {
+        // Si on obtient au moins 1 ligne de résultat, alors le pseudo est déjà pris.
+        $message.= "<div class='alert alert-danger' role='alert' style='margin-top: 20px;'>Attention, le pseudo n'est pas disponible.<br>Veuillez vérifier votre saisie.</div>";
+        $erreur = true; // Si on rentre dans cette condition, alors il y a une erreur.
+    }
 
 
 

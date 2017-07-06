@@ -1,0 +1,14 @@
+footer {
+    background: #222222;
+    color: whitesmoke;
+    height: 100px;
+}
+
+footer p {
+    text-align: right;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
