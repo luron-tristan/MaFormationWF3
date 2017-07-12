@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 50%; margin: 0 auto;">
+        <p id="demo" style="border: 1px solid; padding: 30px;">
+            ...
+        </p>
+        <button id="action">Changer contenu</button>
+    </div>
+    <script>
+        document.getElementById("action").addEventListener('click', changerContenu);
+
+        function changerContenu(){
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                console.log('Statut http : ' + xhttp.status);
+                console.log('Statut ajax : ' + xhttp.readyState);
+
+                if(xhttp.readyState == 4 && xhttp.status == 200) {
+                    console.log(xhttp.responseText);
+                    document.getElementById('demo').textContent = xhttp.responseText;
+                }
+            }
+            xhttp.open("GET", 'ajax_info_text.txt', true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
