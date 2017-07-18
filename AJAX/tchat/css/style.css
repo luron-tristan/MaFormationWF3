@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    background-color: #430000;
     background: url('http://cooldown.fr/wp-content/uploads/2015/10/8390a1a7c62b69f26e88849abf1fbef8_large.jpeg') no-repeat center top;
 }
 .loader{
@@ -45,7 +46,7 @@ border: 1px solid #c0c0c0;
 }
 #smiley img{ margin: 2px; }
 #formulaire_tchat{
-height: 130px;
+min-height: 130px;
 }
 textarea{
 float: left;

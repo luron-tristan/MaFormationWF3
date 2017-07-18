@@ -5,6 +5,8 @@ if(!empty($_SESSION['utilisateur']['pseudo']))
 {
     header('location:dialogue.php');
 }
+
+// echo '<pre>'; var_dump($_SESSION); echo '</pre>';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,9 +15,9 @@ if(!empty($_SESSION['utilisateur']['pseudo']))
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Accueil - Connexion</title>
-        <link rel="stylesheet" href="css/style.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="contenu col-sm-4 col-sm-offset-4">
