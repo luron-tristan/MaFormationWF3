@@ -114,7 +114,7 @@ AND
 
     --############## REQUETE EN JOINTURE ##############--
 -- Une requête en jointure sera possible dans tous les cas.
--- Une requête imbriquée n'est possible que si les informations qu'on récupère ne proviennet que d'une seule table.
+-- Une requête imbriquée n'est possible que si les informations qu'on récupère ne proviennent que d'une seule table.
 
 -- Nous aimerions connaître les dates de sortie et de rendu pour l'abonné Guillaume
 SELECT abonne.prenom, emprunt.date_sortie, emprunt.date_rendu
