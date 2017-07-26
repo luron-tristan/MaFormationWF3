@@ -1,0 +1,119 @@
+/************ POLICES ************/
+@font-face { /* utilisation d'une police css3 à l'aide d'une url */
+	font-family: "Cabin";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Cabin Regular"), local("Cabin-Regular"), url("https://themes.googleusercontent.com/static/fonts/cabin/v4/JEgmtEDzc-IH8jBshQXrYA.woff") format("woff");
+} /*fonts.google.com*/
+@font-face { /* utilisation d'une police css3  à l'aide de fichier */
+    font-family: 'folksbold';
+    src: url('police/Folks-Bold-webfont.eot');
+    src: url('police/Folks-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('police/Folks-Bold-webfont.woff') format('woff'),
+         url('police/Folks-Bold-webfont.ttf') format('truetype'),
+         url('police/Folks-Bold-webfont.svg#folksbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-family: 'Love Ya Like A Sister', cursive;
+}
+body:not(h1){
+    line-height: 140%;
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+    width: 650px;
+    border: 1px solid;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/************ TEXTES ************/
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Baloo';
+}
+h1{
+    font-size: 50px; /* Taille de la police*/
+    color: maroon; /* Couleur de texte */
+    letter-spacing: 3px; /* Espacement entre les lettres */
+    text-transform: uppercase; /* casse de la police - capitalize / uppercase / lowercase / none */
+    text-align: center; /* Alignement horizontal */
+    border: 5px solid;
+    padding: 5px 20px;
+    box-shadow: 0px 5px 20px 0px maroon;
+    line-height: 50px;
+}
+h2{
+    font-size: 25px;
+    color:#666;
+    text-align: center;
+    margin: 25px 130px 40px;
+    /* soulignement - underlin/overline/line through
+    text-decoration: underline;*/
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1px;
+}
+h4{
+    font-size: 18px;
+    color: orange;
+}
+h4 span{
+    color: #666;
+    font-weight: normal;
+    margin-left: 50px;
+}
+h4 i{
+    margin-right: 5px;
+}
+ul{
+    padding-left: 31px;
+}
+ol{
+    padding-left: 30px;
+}
+ul li{
+    /* disc/square/circle/none */
+    list-style-type: circle;
+}
+strong {
+    text-transform: underline;
+}
+
+fieldset{
+    border-radius: 10px;
+}
+fieldset legend{
+    font-size: 18px;
+    font-weight: bold;
+}
+fieldset p{
+    font-size: 15px;
+    text-align: justify;
+    line-height: 120%;
+    font-style: italic;
+}
+summary{
+    color: red;
+    transition: .5s;
+    width: 200px;
+}
+summary:hover{
+    color: orange;
+    cursor: pointer;
+}
+img{
+    float: right;
+    width: 240px;
+    height: 200px;
+    box-shadow: 0px 10px 20px 10px grey;
+}
+.container{
+    background-color: #000);
+}

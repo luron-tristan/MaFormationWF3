@@ -1,0 +1,60 @@
+/* Nous cassons (reset) l'effet d'héritage pour toutes les balises suceptible d'être concernées */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/**{
+	box-sizing: border-box;
+}*/
+body{
+	color: white;
+}
+#conteneur{
+	width: 1000px;
+	margin: 0 auto;
+	background: #40a497;
+	text-align: center;
+}
+header{
+	background: #4a409a;
+	min-height: 80px;
+}
+nav{
+	min-height: 30px;
+	background: yellow;
+}
+nav span{
+	color: #4a409a;
+}
+section{
+	/*min-height: 500px;*/
+	background-color: #89297c;
+	margin: 20px;
+	text-align: left;
+}
+.a, .b{
+	min-height: 500px;
+	float: left;
+}
+.a{
+	background: red;
+	width: 240px; /*width: 25%;*/
+}
+.b{
+	background: blue;
+	width: 720px; /*width: 75%;*/
+}
+.clear{
+	clear: both;
+	/* La classe clear comporte la propriété clear: both; qui pemet de nettoyer le flux de float, qu'il soit left ou right (valeur both) */
+}
+footer{
+	min-height: 70px;
+	background: #124578;
+}

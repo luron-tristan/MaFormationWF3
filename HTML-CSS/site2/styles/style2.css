@@ -1,0 +1,118 @@
+body{
+	font-family: georgia, serif;
+	margin: 0;
+	background: #eee;
+}
+/***   HEADER   ***/
+.header_container{
+	height: 120px;
+	width: 1200px;
+	margin: 0 auto;
+}
+header{
+	width: 100%;
+	background: #333;
+	color: #aaa;
+	height: 120px;
+	margin: 0;
+}
+header h1{
+	margin: 0;
+	font-size: 36px;
+	font-weight: normal;
+}
+div.header_container div{
+	float: left;
+	display: inline-block;
+}
+.logo{
+	display: inline-block;
+	width: 40%;
+	margin-top: 20px;
+}
+div.logo span{
+	font-size: 12px;
+}
+.nav{
+	width: 60%;
+	margin-top: 50px;
+}
+div.nav nav a{
+	text-decoration: none;
+	color: #aaa;
+	text-transform: uppercase;
+	padding: 18px 12px;
+	background: #222;
+	transition: 0.5s;
+}
+div.nav nav a:hover{
+	background: orange;
+	color: black;
+}
+nav div{
+	text-align: center;
+	background: #000;
+} 
+.clear{
+	clear: both;
+}
+
+
+/*****   SECTION   *****/
+
+.section_container{
+	width: 1200px;
+	margin: 30px auto 0;
+}
+.zone1, .zone2{
+	width: 725px;
+	height: 150px;
+	float: left;
+}
+.zone1{
+	margin-top: 10px;
+}
+.zone3{
+	width: 30%;
+	float: right;
+}
+.zone1 h2, .zone2 h2{
+	text-transform: uppercase;
+	color: #888;
+	font-size: 15px;
+}
+.zone1 p, .zone2 p{
+	color: #888;
+}
+.img{
+	float: left;
+}
+div.img img{
+	margin-right: 50px;
+	border: 1px solid lightgrey;
+}
+div.description{
+	float: left;
+	width: 60%;
+}
+a{
+	color: orange;
+	text-decoration: none;
+}
+a.lireplus{
+	float: right;
+}
+div.zone3 h2{
+	font-size: 16px;
+	color: #888;
+	text-transform: uppercase;
+}
+hr{
+	color: #666;
+}
+li{
+	color: #888;
+	list-style-type: url(images/orange_file.gif);
+	border-bottom: 1px dotted #888;
+	line-height: 35px;
+}

@@ -1,0 +1,30 @@
+body{
+	font-size: 25px;
+}
+#section1 span.classe1{
+	color: red; /* 16 */
+}
+section div.classe1{
+	color: blue; /* 10 */
+}
+section#section1 div.classe1{
+	color: black; /* 14 */
+}
+section#section1 div{
+	color: grey; /* 13 */
+}
+article#article1 span{
+	color: orange; /* 07 */
+}
+article#article1 span.classe1{
+	color: black; /* 08 */
+}
+span.classe1{
+	color: purple; /* 20 */
+}
+article span.classe1{
+	color: black; /* 04 */
+}
+section span.classe1{
+	color: white; /* 12 */
+}

@@ -1,0 +1,92 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.conteneur{
+	width: 1000px;
+	background: #40A497;
+	margin: 0 auto;
+	color: #fff;
+}
+header{
+	min-height: 80px;
+	background: #A4409A;
+}
+nav{
+	min-height: 30px;
+	background: yellow;	
+}
+aside, section{
+	min-height: 500px;
+	color: gray;
+	font-size: 50px;
+	float: left;
+	width: 100%;
+}
+aside{
+	background: red;
+	width: 25%;
+}
+section.milieu{
+	background: blue;
+	width: 50%;
+}
+.a, .b, .c, .d{
+	min-height: 250px;
+	width: 100%;
+	float: left;
+}
+.a{background: red;}
+.b{	background: brown;}
+.c{	background: green;}
+.d{background: purple;}
+footer{
+	min-height: 60px;
+	background: #E80B28;
+} 
+.ghost{
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

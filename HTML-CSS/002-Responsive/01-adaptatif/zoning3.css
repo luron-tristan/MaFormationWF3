@@ -1,0 +1,90 @@
+/* Nous cassons (reset) l'effet d'héritage pour toutes les balises suceptible d'être concernées */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/**{
+	box-sizing: border-box;
+}*/
+body{
+	color: white;
+	font-size: 1em;
+}
+#conteneur{
+	width: 1000px;
+	margin: 0 auto;
+	background: #40a497;
+}
+header{
+	background: #a4409a;
+	min-height: 80px;
+}
+nav{
+	min-height: 30px;
+	background: yellow;
+}
+nav span{
+	color: white;
+}
+section{
+	/*min-height: 500px;*/
+	background-color: #89297c;
+	text-align: left;
+}
+.a, .b, .c, .d{
+	width: 500px;
+	float: left;
+	min-height: 250px;
+}
+.a{
+	background: red;
+}
+.b{
+	background: blue;
+}
+.c{
+	background: green;
+}
+.d{
+	background: purple;
+}
+.clear{
+	clear: both;
+}
+footer{
+	min-height: 60px;
+	background: #e80b28;
+}
+@media (max-width: 1050px){
+	#conteneur{
+		width: 750px;
+		font-size: 1.2em;
+	}
+	.a, .b, .c ,.d{
+		width: 375px;
+	}
+}
+@media (max-width: 780px){
+	#conteneur{
+		width: 550px;
+		font-size: 1em;
+	}
+	.a, .b, .c ,.d{
+		width: 275px;
+	}
+}
+@media (max-width: 580px){
+	#conteneur{
+		width: 100%;
+		font-size: 1.4em;
+	}
+	.a, .b, .c ,.d{
+		width: 100%;
+	}
+}

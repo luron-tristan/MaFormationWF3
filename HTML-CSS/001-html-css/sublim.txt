@@ -1,0 +1,58 @@
+Fiche de révision
+
+SublimeText est un éditeur de texte orienté pour le développement, développé en C++ et Python, et particulièrement populaire pour ses performances, ses fonctions riches et sa modularité. La dernière version stable est la 2.x tandis qu'une version 3.x est en beta actuellement. La version 1.0 est sortie le 18 janvier 2008.
+Orienté développement
+
+Parmi les nombreuses fonctionnalités disponibles, voici les principales à retenir :
+
+    Coloration syntaxique (adapte la coloration du code selon le langage et sa syntaxe)
+    Auto-complétion (propose des noms de fonctions, variables ou autre en fonction de ce qui est tapé)
+    Possibilité d'ouvrir un dossier complet afin de parcourir et trouver rapidement un fichier directement depuis l'éditeur
+    Possibilité d'ajouter des thèmes de coloration, d'interface et des extensions pour ajouter de nouvelles fonctionnalités
+    Sélection et édition en parallèle de plusieurs endroits dans un même fichier.
+    Recherche et remplacement multiples par expression régulière
+
+Les raccourcis à connaître
+
+L'un des avantages de Sublime Text, c'est aussi la quantité de commandes disponibles et souvent toutes liées à des raccourcis claviers (qu'il est d'ailleurs possible de changer complètement depuis la configuration).
+Rappel des raccourcis similaires aux autres logiciels:
+
+    ctrl + C — Copier le texte sélectionné dans le presse-papier
+    ctrl + X — Couper le texte sélectionné dans le presse-papier
+    ctrl + V — Coller le texte contenu dans le presse-papier
+    ctrl + S — Sauvegarder le fichier en cours
+    ctrl + O — Ouvrir un fichier ou dossier
+    ctrl + W — Fermer le fichier en cours
+    ctrl + F — Chercher dans le fichier en cours
+
+Fonctions spéciales
+
+Voici en plus quelques fonctions spécifiques à SublimeText, particulièrement utiles lors de phases de développement, ainsi que leur raccourci:
+Aller à
+
+    ctrl + P — Lorsque vous avez un dossier ouvert ou plusieurs fichiers, vous permet d'accéder directement à un fichier spécifique où qu'il soit simplement en tapant une partie de son nom.
+    ctrl + G — Permet d'accéder directement à une ligne spécifique du fichier en cours en tapant son numéro
+
+Manipulation de texte
+
+    ctrl + ], [ — Indenter/Désindenter la ligne ou la sélection
+    ctrl + ↑, ↓ — Inverse la ligne courante avec la ligne précédente ou la ligne suivante
+    ctrl + maj + / — Commenter/décommenter la ligne courante
+
+Dossier de projet
+
+L'idéal avec Sublime Text, c'est d'ouvrir le dossier entier du projet. Cela permet d'avoir toute l'arborescence dans la barre latérale de gauche, et d'avoir tous les fichiers ouverts du projet en onglets d'une seule fenêtre, et non une fenêtre par fichiers.
+Cela permet également, via le raccourci ctrl + P cité précédemment, de naviguer rapidement d'un fichier à l'autre au sein du projet.
+
+Pour ouvrir un dossier dans Sublime Text, il existe au moins 2 méthodes :
+
+    Glisser-déposer le dossier depuis l'explorateur vers l'icône de Sublime Text
+    Ctrl+O (ou Fichier > Ouvrir), aller dans le dossier à ouvrir puis, sans sélectionner de fichier, cliquer sur le bouton "Ouvrir".
+
+Extensions via Package Control
+
+Bien que Sublime Text soit extrêmement modulaire, les extensions ne sont pas forcément pratiques à installer. C'est pour quoi il existe Package Control qui s'installe via la console de Sublime Text, et permet ensuite d'installer facilement des packages supplémentaires. Une fois installé, il suffit alors d'utiliser le raccourci ctrl + maj + P afin de faire apparaître le champ de lancement de commandes, et de taper "install package" et valider pour installer un package en tapant son nom. La liste complète des packages est disponible sur cette page, et en voici quelques un très utiles :
+
+    GoTo Documentation : accéder à la doc d'une fonction rapidement
+    SideBarEnhancements : quelques commandes supplémentaires pour le menu contextuel de la sidebar
+    SyncedSideBar : Synchronise la sidebar en mettant en avant le fichier actuellement visualisé

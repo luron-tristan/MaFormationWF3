@@ -1,0 +1,13 @@
+#conteneur{
+	width: 960px;
+	margin: 0 auto;
+	background-color: #f4c400;
+	padding: 30px;
+}
+.a, .b{
+	width: 450px;
+	height: 250px;
+	border: 2px dotted;
+	margin: 0 10px;
+	display: inline-block;
+}

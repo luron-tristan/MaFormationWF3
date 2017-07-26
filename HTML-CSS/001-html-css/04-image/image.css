@@ -1,0 +1,22 @@
+div{
+	width: 800px; /* largeur */
+	margin: 0 auto; /* marges qui centrent la div */
+}
+div#mon_id{
+	background: blue;
+}
+div.img_hover img{
+	border: 5px solid #eee;
+	margin: 20px;
+	box-shadow: 4px /*décalage horizontal (+ ou -) */ 4px /*décalage vertical (+ ou -) */ 15px /*flou*/ rgba(0,0,0,0.2); /*CSS Matic*/
+	transition: transform 0.5s;
+}
+div.img_hover img:hover{
+	transform: rotate(12deg);
+}
+div.img_hover img.tourcomplet{
+	transition: transform 2s;
+}
+div.img_hover img.tourcomplet:hover{
+	transform: rotate(720deg);
+}

@@ -1,0 +1,78 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.conteneur{
+	width: 1000px;
+	background: #40A497;
+	margin: 0 auto;
+	color: #fff;
+}
+header{
+	min-height: 80px;
+	background: #A4409A;
+}
+nav{
+	min-height: 30px;
+	background: yellow;	
+}
+section{
+	background: #89297C;
+}
+section div{
+	width: 200px;
+	min-height: 200px;
+	color: gray;
+	font-size: 50px;
+	float: left;
+}
+.a{background: red;}
+.b{	background: blue;}
+.c{	background: green;}
+.d{background: purple;}
+.e{background: yellow;}
+.f{	background: #111111;}
+.g{	background: #222222;}
+.h{background: #333333;}
+.i{background: red;}
+.j{	background: #444444;}
+.k{	background: #555555;}
+.l{background: #999999;}
+.m{background: red;}
+.n{	background: blue;}
+.o{	background: green;}
+.p{background: #658718;}
+.q{background: #659873;}
+.r{background: purple;}
+.s{background: #987436;}
+.t{background: #457831;}
+footer{
+	min-height: 60px;
+	background: #E80B28;
+} 
+.ghost{
+	clear: both;
+}
+
+
+
+
+
+
+

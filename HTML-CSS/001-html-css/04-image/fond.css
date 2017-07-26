@@ -1,0 +1,23 @@
+body{
+	background: #000 url("images/fond1.jpg") top left / 100% no-repeat;
+	/* background-size: cover ou contain; */
+}
+/*
+background-color
+background-image -> jpg, .jpeg, .gif, .png(permet une transparence)
+background-position -> unités de longueur (100px(largeur) 5px(hauteur)), pourcentages (100% 5%), mots clés(top, right, left ou bottom)
+background-size -> tailles fixes, pourcentages 
+background-repeat -> no-repeat, repeat-x, repeat-y;
+background-attachment -> scroll(par défaut) ou fixed;
+*/
+.contenu{
+	width: 800px;
+	height: 500px;
+	background-color: rgba(255,255,255,0.3);
+	margin: 200px auto 0;
+}
+.contenu p{
+	text-align: center;
+	position: relative;
+	top: 50%;
+}

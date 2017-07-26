@@ -1,0 +1,53 @@
+/* Nous cassons (reset) l'effet d'héritage pour toutes les balises suceptible d'être concernées */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/*
+	En faisant un reset, on ne nous impose rien. Nous remettons à plat tous les héritages. Rien ne nous empêche ensuite de définir nos propres styles et d'être maîtres de nos choix.
+*/
+h1{
+	/* En ajoutant une bordure, je peux constater l'étendue du contenu de l'élement. */
+	border: 1px solid; /* bordure/contour */
+	font-size: 20px; /* taille de la police */
+	font-weight: bold; /* texte en gras */
+	text-align: center; /* alignement horizontal du texte */
+	padding: 20px; /* marges intérieures */
+	margin: 20px; /* marges extérieures */
+}
+p{
+	border: 1px solid;
+}
+/* en ajoutant une bordure au span, nous constatons que l'élément ne prend que la place dont il a besoin, on dit qu'il est display: inline; */
+span{
+	border: 1px solid;
+}
+/* en ajoutant une bordure nous constatons que l'élément prend toute la placde en largeur, on dit qu'elle est display : block; */
+
+div{
+	border: 1px solid;
+}
+/* Certains éléments sont block, d'autres sont inline */
+
+/*
+MARGIN/PADDING
+	margin/padding: 10px 9px 8px 7px;
+	4 valeurs -> 10px en haut, 9px à droite, 8px en bas, 7px à gauche.
+	
+	margin/padding: 10px 9px 8px;
+	3 valeurs -> 10px en haut, 9px à gauche et à droite, 8 px en bas.
+
+	margin/padding: 10px 5px
+	2 valeurs -> 10px en haut et en bas, 5px à gauche et à droite.
+
+	margin/padding: 10px
+	1 valeur -> 10px en haut, à droite, en bas, à gauche.
+
+	moyen mnémotechnique: une horloge débute à minuit (en haut), les aiguilles passent ensuite à droite, puis en bas et enfin à gauche.
+*/

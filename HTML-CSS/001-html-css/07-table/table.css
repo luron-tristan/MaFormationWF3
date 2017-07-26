@@ -1,0 +1,10 @@
+table{
+	/*border: 1px solid;*/
+	border-collapse: collapse;
+	width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+thead th{
+	background: #f40c80;
+}

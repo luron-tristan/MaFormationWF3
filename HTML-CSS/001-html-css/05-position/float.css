@@ -1,0 +1,14 @@
+.d1{
+	width: 170px;
+	height: 170px;
+	border: 1px solid;
+	text-align: center;
+	float: left;
+}
+section{
+	border: 2px solid;
+	background: red;
+}
+.clear{
+	clear: both; /*left/right/both*/
+}

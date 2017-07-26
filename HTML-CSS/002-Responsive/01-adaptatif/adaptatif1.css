@@ -1,0 +1,32 @@
+.zone-adaptative{
+	background: orange;
+	color: #fff;
+	padding: 10px;
+	width: 350px;
+}
+.zone{
+	float: left;
+	background: red;
+	width: 100%;
+}
+.clear{
+	clear: both;
+}
+@media (min-width: 768px){
+	.zone-adaptative{
+		width: 730px;
+	}
+	.zone{
+		width: 33.33%
+	}
+}
+@media (min-width: 992px){
+	.zone-adaptative{
+		width: 970px;
+	}
+}
+@media (min-width: 1200px){
+	.zone-adaptative{
+		width: 1170px;
+	}
+}

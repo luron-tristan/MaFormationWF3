@@ -1,0 +1,16 @@
+body, p{
+	margin: 0;
+}
+.blue{
+	color: blue;
+	font-weight: bold;
+	position: absolute;
+	top: 90%;
+	right: 10px;
+}
+.relative{
+	width: 500px;
+	height: 500px;
+	border: 1px solid;
+	position: relative;
+}

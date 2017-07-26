@@ -1,0 +1,90 @@
+﻿<!-- Le doctype est la déclaration du type de document, qui indique au navigateur dans quelle version de html la page a éré écrite.
+Cela inqique aux anciens navigateurs de désactiver leur mode de rendu pour éviter les erreurs en cas de balise non reconnue.
+Ici, c'estg le doctype correspondant au HTML5 (uniquement)
+-->
+<!DOCTYPE html>
+<!-- <html> encadre tout le contenu de la page. Il est aprfois appelé l'élément racine. -->
+<html>
+	<!-- <head> (en-tête) contient les informations générales (métadonnées) sur le document. Son titre, ses mots-clés, des liens vers des scripts ou des feuilles de style. -->
+	<head>
+		<!-- Character sets définit le jeu de caractères utilisé pour le document et indique que c'est UTF-8 (regroupant l'ensemble des caractères connus utilidés dans les différents langages humains) -->
+		<meta charset="UTF-8" />
+		<!-- <title> définit le titre de la page qui apparait dans l'onglet du navigateur et est utilisé par Google ou encore les marque-pages -->
+		<title>Site WF3 première page</title>
+		<!-- <meta> représente différents types de métadonnées. L'attribut name est associé à une valeur contenue dans l'attribut content -->
+		<!-- description contient un résumé concis et pertinent du contenu de la page -->
+		<meta name="description" content="Voici ici une description de mon site" />
+		<!-- Keywords contient une liste de mots clés pertinents et en rapport avec le contenu de ma page (mots séparés par des virgules) -->
+		<!-- La faute d'orthographe peut permettre d'être plus accessible -->
+		<meta name="keywords" content="mot-clé1, mot-clé2, deux mots, iphone, ifone, etc..." />
+		<!--Author renseigne sur le nom de l'auteur du document -->
+		<meta name="author" content="My Self" />
+		<!-- <link> définit la relation entre le document courant et une ressource externe. (ici une feuille de style)
+		L'attribut rel renseigne sur le type de relation, href indique le chemin vers la ressource externe -->
+		<link rel="stylesheet" href="structure.css" />
+		<!-- <style> contient des informations de mise en forme pour un document ou unr partie de document. Par défaut, les instructons sont écrites en CSS. -->
+		<style> 
+			section {font-weight: bold}
+		</style>
+	<!--  -->
+	</head>
+	<!-- <body> (corps) représente le contenu principal du document HTML, ce qui est affiché à l'écran. C'est à l'intérieur du corps que se trouve la majeur partie du code. -->
+	<body>
+		<!-- <header> (zone du haut) représente un groupe de contenu introductif ou de contenu aidant à la navigation. il peut contenir des éléments de titre (h1), mais aussi d'autres éléments tels un logo, un formulaire de recherche. -->
+		<header>
+			Haut
+		</header>
+		<!-- <nav> (zone de menu) représente une section de page ayant des liens vers d'autres pages ou des fragments de cette page. Autrement dit, c'est une section destinée à la navigation dans un document. -->
+		<nav>
+			Menu
+		</nav>
+		<!-- <section> (zone de contenu) représente une section générique d'un document, par exemple un groupe de contenu thématique. Une section commence généralement par un titre (h2) -->
+		<section>
+		<h1>Mon titre H1</h1>
+			<!-- <div> (division du document) est un conteneur générique qui permet de d'organiser le contenu sans représenter rien de particulier. Il doit uniquement être utilisé lorsqu'aucun autre élément sémantique n'est approprié. -->
+			<div>
+				Section -> div
+			</div>
+			<!-- L'attribut  style contient les déclarations css utilisées pour mettre en forme l'élément. Le rôle de l'attribut style consiste à permettre une mise en forme rapide, notamment pour des tests.-->
+			<div style="color: blue;">
+				Section -> div
+			</div>
+			<!-- <span> est un conteneur générique pour les contenus textuels. Il ne représente rien de particulier, il foit être uniquement utilisé lorsqu'aucun autre élément sémantique n'est approprié. -->
+			<span>
+				Section -> span
+			</span>
+		</section>
+		<!-- <article> (zone de contenu texte) représente du contenu autonome sur une page. Ceci peut être un message sur un forum, une parution sur un blog, ou autre élément de contenu indépendant.
+		Le contenu est prévu comme pouvant être ditribué ou utilisé indépendamment (par exemple dans un flux de syndication. ex: RSS) -->
+		<article>
+			Article
+		</article>
+		<!-- <aside> (apparté) est une section de la page dont le contenu est indirectement lié à ce qui l'entoure et qui ne pourrait être séparé de cet environnement. De telles sections sont souvent représentées par des colonnes annexes ou des encadrés. C'est souvent l'utilisation assignée aux colonnes latérales lorsque la résolution le permet. -->
+		<aside>
+			Aside
+		</aside>
+		<!-- <footer> (zone du bas) représente le pied de page ou de la section. il contient habituellement des informations sur l'auteur de la section, les données relatives aux droits d'auteur (copyright) ou bien les liens vers d'autres documents en relation (mentions légales, plan du site, CGU, CGV...) -->
+		<footer>
+			Bas de page
+		</footer>
+	</body>  
+</html>
+
+<!--
+L'HyperText Markup Language est un langage à balises utilisé pour la création de contenu et la structuration sémantique des pages web.
+- Création et hiérarchisation du contenu dans une structure d'éléments (balises) imbriqués.
+- Chaque élément contenant définit la valeur sémantique (la signification) du contenu aux yeux du navigateur (ex : la balise <title>)
+
+Un élément, par exemple header, commence à la balise ouvrante (ou balise d'ouverture) et se termine après la balise fermante (ou de fermeture) <header>......</header>
+
+Les balises indiquent la nature du contenu qu'elles encadrent. Elles disent : 'ceci et le titre de la page', 'ceci est un header', 'ceci est un paragraphe de texte', etc...
+
+Certains éléments sont des balises ne proposant pas de contenu texte ou autre, on parle d'éléments vides ou de balises orphelines (ex: balise <meta />)
+
+Une balise ouvrante peut contenir des informations additionnelles : les attributs.
+Certaines balises demandent un attribut pour fonctionner, d'autres attributs sont optionnels.
+Les attributs consistent en deux parties:
+- Un nom d'attribut le définissant suivi du signe "="
+- Une valeur d'attribut entre guillemets
+
+-->

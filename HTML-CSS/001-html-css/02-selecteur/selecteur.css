@@ -1,0 +1,86 @@
+@import url('selecteur2.css');
+p{
+	/* Tous les éléments <p> */
+	color: red;
+}
+/* section .b p:first-child, header p:first-child{
+	color: green;
+} */
+html body p:first-child{
+	/* Le premier élément <p> de la page ou premier élément <p> d'un parent */
+	color:green;
+}
+p:last-child{
+	/* Le dernier élément <p> de la page ou le dernier d'un parent */
+	color: lightgreen;
+}
+p:first-child{
+	/* Le premier élément <p> de la page ou premier élément <p> d'un parent */
+	color:green;
+}
+p:last-child{
+	/* Le dernier élément <p> de la page ou le dernier d'un parent */
+	color: lightgreen;
+}
+p:nth-child(even){
+	/* tous les éléments <p> pairs */
+	color: blue;
+}
+p:nth-child(odd){
+	/* tous les éléments <p> impairs */
+	color: brown;
+}
+p:nth-child(5), p:nth-child(6){
+	/* éléments précis 5 et 6 - CSS3*/
+	color: orange;
+}
+div:not(.zone_a){
+	/* toutes les div sauf les div de classe .zone_b */
+	font-weight: bold;
+}
+#zone_d:after{ /* after/ before */
+	/* possibilité de mettre du contenu dans le html via la feuille de style CSS. Cela est généralement utilisé pour des codes d'icones. */
+	content: "texte";
+	color: violet;
+}
+/*
+L'utilisation des :child n'est pas très rassurante, dans le cas où le code html serait amené à évoluer.
+Il est préférable de favoriser l'utilisation de classes et d'id.
+*/
+.zone_a{
+	color: #F56F56;
+}
+.zone_b{
+	color: #963;
+}
+#zone_c{
+	color: #98F32F;
+}
+#zone_d span{
+	color: #32FF32;
+}
+p[title="infobulle"]{
+	color: pink;
+}
+/* Sélecteur universel, tous les élements sont concernés */
+*{
+	font-size: 25px;
+}
+/*
+Différences entre class et id (attributs):
+	- Une classe est appelée grâce à un point "."
+	- Un id est appelé grâce à un dièse "#"
+	Le W3C recommande d'utiliser un id une seule fois dans une page web (pour les zones principales) et des classes (une ou plusieurs fois) pour tout le reste.
+	- Différence de poids : pour rendre prioritaire un sélecteur (#id > .class > balise);
+
+Plusieurs moyens de styliser un élément :
+	- par son id:  #element
+	- par sa classe: .element
+	- par sa balise: balise
+	- par une pseudo-classe: element:fist-child
+
+Règles d'écriture:
+	-div.zone{} veut dire: va me chercher la div qui possède la classe zone.
+	-div .zone veut dire va me chercher la classe zone qui est descendante de la div. (c'est l'espace qui change la signification)
+	-.maclasse, .maclasse2{} : il y a des virgules on applique le style sur les différents éléments
+*/

@@ -1,0 +1,94 @@
+body{
+	font-family: georgia, sans-serif;
+	margin: 0;
+}
+/***   HEADER   ***/
+.header_container{
+	height: 120px;
+	width: 960px;
+	margin: 0 auto;
+}
+header{
+	width: 100%;
+	background: #333;
+	color: #aaa;
+	height: 120px;
+	margin: 0;
+}
+header h1{
+	margin: 0;
+	font-size: 36px;
+	font-weight: normal;
+}
+div.header_container div{
+	float: left;
+	display: inline-block;
+}
+.logo{
+	display: inline-block;
+	width: 40%;
+	margin-top: 20px;
+}
+div.logo span{
+	font-size: 12px;
+}
+.nav{
+	width: 60%;
+	margin-top: 50px;
+}
+div.nav nav a{
+	text-decoration: none;
+	color: #aaa;
+	text-transform: uppercase;
+	padding: 18px 12px;
+	background: #222;
+	transition: 0.5s;
+}
+div.nav nav a:hover{
+	background: orange;
+	color: black;
+}
+nav div{
+	text-align: center;
+	background: #000;
+} 
+.clear{
+	clear: both;
+}
+/* ********   SECTION   ******** */
+
+.section_container{
+	height: 120px;
+	width: 960px;
+	margin: 0 auto;
+}
+div.section{
+	width: 50%;
+	float: left;
+}
+div.section h2{
+	text-transform: uppercase;
+	color: #888;
+	font-size: 15px;
+}
+label{
+	color: #888;
+}
+input{
+	color: #888;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	width: 100%;
+	line-height: 30px;
+}
+#message{
+	height: 300px;
+	width: 100%;
+}
+textarea{
+	font-style: georgia;
+}
+.bouton{
+	color: white;
+	background: blue;
+}

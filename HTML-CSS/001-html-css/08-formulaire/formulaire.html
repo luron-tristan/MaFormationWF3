@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Formulaires</title>
+		<link rel="stylesheet" href="formulaire.css" />
+	</head>
+	<body>
+		<form method="get" action="#" /> <!-- method="get/post" -->
+
+			<label for="idpseudo">Pseudo</label>
+			<input type="text" id="idpseudo" name="pseudo" required placeholder="Votre pseudo" />
+
+			<label for="mdp">Mot de passe</label>	
+			<input type="password" id="mdp" name="mdp" />
+
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" />
+
+			<label for="avatar">Avatar</label>
+			<input type="file" id="avatar" name="avatar" />
+
+			<label for="pays">Pays</label>
+			<select id="pays" name="pays" multiple>
+				<optgroup label="Europe">
+					<option value="en">England</option>
+					<option value="es">Spain</option>
+					<option value="fr" selected>France</option>
+					<option value="it">Italia</option>
+				</optgroup>
+				<optgroup label="Asie">
+					<option value="la">Laos</option>
+					<option value="ko">South Korea</option>
+					<option value="ch">China</option>
+				</optgroup>
+			</select>
+
+			<label for="checkbox">Quels sont vos fruits préférés ?</label>
+			<input type="checkbox" name="choix" value="Goyave" /><span>Goyave</span>
+			<input type="checkbox" name="choix" value="Maracuja" /><span>Mangue</span>
+			<input type="checkbox" name="choix" value="Mangue" /><span>Maracuja</span>
+
+			<label for="civilite">Civilité</label>
+			<input type="radio" id="femme" name="civilite" checked value="f" /><label class="radiolabel" for="femme">Femme</label>
+			<input type="radio" id="homme" name="civilite" value="h" /><label class="radiolabel" for="homme">Homme</label>
+
+			<label for="ville">Ville</label>
+			<input type="text" id="ville" name="ville" list="france"/>
+			<datalist id="france">
+				<option>Paris</option>
+				<option>Lyon</option>
+				<option>Bordeaux</option>
+				<option>Nice</option>
+				<option>Toulouse</option>
+			</datalist>
+
+			<label for="adresse">Adresse</label>
+			<textarea id="adresse" name="adresse" rows="5" cols="25"></textarea>
+
+			<!-- <label for="datedenaissance">Date de naissance</label>
+			<input type="date" name="datedenaissance" id="datedenaissance" />
+			Fonctionne sur Chrome uniquement -->
+
+			<input type="hidden" name="cache" />
+
+			<div class="submit">
+				<input type="submit" name="inscription" value="Se connecter" />
+				<input type="reset" name="efface" value="Recommencer" />
+			</div>
+		</form>
+	</body>
+</html>

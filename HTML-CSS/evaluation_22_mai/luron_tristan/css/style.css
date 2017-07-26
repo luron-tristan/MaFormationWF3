@@ -1,0 +1,185 @@
+/*Partie 1 : Menu / Header / Base    
+Les items du menu deviennent rose clair au survol de la souris.
+Une ombre portée se trouve autour du bloc de contenu.
+
+Partie 2 : Contenu 
+Les liens du menu sont des ancres vers les trois blocs de contenu : Le principe, Nos licornes  et Nous trouver.    
+
+Partie 3 : Les images 
+Les images sont entourées de balises <figure>et les noms des licornes se trouvent dans  des balises <figcaption>. Un effet de zoom en CSS 3 s’effectue au survol de l’image.   
+ 
+Partie 4 : Google Maps    La carte est une carte Google Maps interactive, centrée sur la boutique.    
+
+ Partie 5 : Formulaire    Le formulaire d'inscription à la newsletter doit renvoyer sur la page "newsletter.php", ​qui  n'est PAS à créer par vos soins. ​Le champ doit être requis et ne doit accepter que les  adresses emails.  */
+
+
+/*******************   GENERAL  *******************/
+* {
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: url("../img/background.png") top left;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Courgette', cursive;
+	display: inline;
+}
+
+.clear{
+	clear: both;
+}
+
+/*******************   HEADER  *******************/
+header{
+	background: #C55394;
+	width: 100%;
+	height: 76px;
+	margin: 0;
+	padding: 0;
+}
+header h2{
+	margin: 20px 30px;
+	color: #fff;
+	float: left;
+	font-size: 27px;
+	font-weight: normal;
+}
+ul{
+	margin: 0;
+}
+a li{
+	display: inline-block;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 30px 20px;
+}
+div.menu a li:hover{
+	background: #EB43A3;
+}
+.menu{
+	float: right;
+}
+
+/*******************   SECTION  *******************/
+section{
+	width: 100%;
+	margin: 100px 0;
+}
+.h1{
+	font-size: 22px;
+	text-align: center;
+	color: #C55394;
+	margin-bottom: 60px;
+}
+.h1 h1{
+	background: url("../img/rainbow.png") bottom center / 100% no-repeat;
+	padding: 100px;
+	margin: 120px auto;
+	}
+.container{
+	width: 1200px;
+	margin: 0 auto;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 0 10px 5px lightgrey;
+}
+h3{
+	color: #EB43A3;
+	font-size: 25px;
+	font-weight: normal;
+}
+
+.section1{
+	padding-top: 60px;
+	margin: 60px 15px;
+}
+.section1 p{
+	font-size: 14px;
+	color: #333;
+}
+
+.section2{
+	margin: 60px 15px;
+	position: relative;
+}
+.section2 img{
+	width: 275px;
+}
+figure{
+	float: left;
+	position: relative;
+	margin: 30px 23px 0 0;
+	overflow: hidden;
+}
+.lastfigure{
+	margin-right: 0;
+}
+figure img{
+	width: 100%;
+	transition: 0.5s;
+	transform: scale(1);
+}
+figure:hover img{
+	transform: scale(1.1);
+}
+figcaption{
+	position: absolute;
+	left:0;
+	bottom: 0;
+	font-size: 14px;
+	background-color: rgba(0,0,0,0.8);
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	width: 100%;
+}
+
+.section3{
+	margin: 60px 15px;
+	padding-bottom: 60px;
+}
+.map{
+	margin-top: 30px;
+	margin-right: 20px;
+	width: 60%;
+	float: left;
+}
+.form{
+	margin-top: 30px;
+	width: 35%;
+	float: left;
+}
+.form h4{
+	font-size: 15px;
+	color: #C55394;
+}
+.form p{
+	font-size: 13px;
+	color: #333;
+}
+input.email{
+	padding: 10px;
+}
+input#valider{
+	margin-top: 10px;
+	background: #C55394;
+	border: 1px solid #C55394;
+	color: #fff;
+	padding: 5px 20px;
+	border-radius: 5px;
+}
+/************   FOOTER   ************/
+footer{
+	background: #E577B5;
+}
+footer p{
+	float: right;
+	color: #fff;
+	padding: 10px;
+	font-size: 13px;
+	font-weight: bold;
+}

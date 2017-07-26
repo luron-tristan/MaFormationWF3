@@ -1,0 +1,91 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+.conteneur{
+	width: 1000px;
+	background: #40A497;
+	margin: 0 auto;
+	color: #fff;
+}
+header{
+	min-height: 80px;
+	background: #A4409A;
+}
+footer{
+	min-height: 70px;
+	background: #124578;
+}
+nav{
+	min-height: 30px;
+	background: yellow;	
+}
+section{
+	margin: 20px;
+	background: #89297C;
+	min-height: 500px;
+}
+/*RESPONSIVE ADAPTATIF*/
+/* En dessous de 1050px Ordinateur portable */
+@media screen and (max-width: 1050px){
+	.conteneur{
+		width: 750px;
+	}
+}
+/* En dessous de 780 Tablette */
+@media screen and (max-width: 780px){
+	.conteneur{
+		width: 550px;	
+	}
+}
+/* En dessous de 580 Smartphone */
+@media screen and (max-width: 580px){
+	.conteneur{
+		width: 100%;	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

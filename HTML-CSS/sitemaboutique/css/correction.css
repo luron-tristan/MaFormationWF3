@@ -1,0 +1,205 @@
+/*************** BALISES GENERALES ****************/
+body{
+	background: url('../img/fond.png') repeat-x;
+	font-family: sans-serif;
+}
+p{font-size: 13px;}
+
+#container{
+	width: 1000px;
+	margin: 0 auto;
+	border: 1px solid;
+	box-shadow: 1px 1px 6px;
+	background: white;
+}
+/*****************   HEADER   ******************/
+header{height: 85px;}
+.titre{
+	float: left;
+	width: 350px;
+	margin-right: 70px;
+}
+.titre h1, .titre img{
+	float: left;
+}
+.titre h1{
+	font-style: italic;
+	font-size: 43px;
+	color: black;
+	margin: 0 0 0 20px;
+}
+.titre img{
+	margin: 6px 0 0 10px;
+}
+.titre p{
+	color: #f583e3;
+	font-style: italic;
+	margin-left: 75px	;
+}
+.information{
+	float: left;
+	width: 250px;
+}
+.aide{
+	color: #3fc9fa;
+	font-size: 26px;
+	margin: 0 0 0 0;
+}
+.tel{
+	color: #3fc9fa;
+	background: url(../img/aide.png) no-repeat;
+	padding: 1px 10px 2px 45px;
+	font-weight: bold;
+	font-size: 18px;
+	display: block;
+}
+p.horaire{
+	margin: 0 0 0 0;
+	font-style: italic;
+	color: #b2b3b2;
+}
+.panier{
+	float: right;
+	width: 250px;
+	background: #3fc9f2;
+}
+.panier div{
+	font-size: 13px;
+	text-align: center;
+	border-bottom: 1px solid white;
+	padding: 2px;
+}
+.panier div a{
+	color: #fff;
+	text-decoration: none;
+}
+.panier span{
+	font-size: 15px;
+	color: #fff;
+	vertical-align: 15px;
+}
+/*****************   NAV   ********************/
+nav{
+	background: #3fc9fa;
+	height: 30px;
+}
+nav a{
+	width: 16.6%;
+	display: block;
+	float: left;
+	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 30px;
+	color: white;
+	text-decoration: none;
+}
+nav a.last{
+	width: 17%;
+}
+nav a:hover{
+	background: #f583e3;
+}
+/******************   SECTION   **********************/
+#info_boutique .paiement{
+	padding: 0 10px 0 10px;
+	width: 200px;
+	float: left;
+	border-right: 1px solid grey;
+}
+#info_boutique .aboutus{
+	padding: 0 10px 0 10px;
+	width: 538px;
+	float: left;
+}
+#info_boutique .livraison{
+	padding: 0 10px 0 10px;
+	width: 200px;
+	float: left;
+	border-left: 1px solid grey;
+}
+#info_boutique .livraison span{
+	font-size: 15px;
+	vertical-align: 11px;
+}
+#info_boutique .livraison div{
+	margin-bottom: 5px;
+	font-size: 15px;
+	vertical-align: 11px;
+}
+#info_boutique h2{
+	font-size: 15px;
+	color: #3fc9fa;
+}
+#publicite{
+	margin: 25px 0;
+}
+#publicite .bloc{
+	float: left;
+	width: 300px;
+	margin: 0 15px;
+	/* Arrondis */
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	/* Box-shadow */
+	-webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.7);
+	-moz-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.7);
+	box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.7);
+}
+#publicite .bloc h2{
+	background: #d9d9d9;
+	font-size: 15px;
+	text-align: center;
+	padding: 3px 0;
+	/* Arrondis */
+	border-radius: 10px 10px 0 0;
+	-moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius: 10px 10px 0 0;
+	border: 0px solid #000000;
+	margin-top: 0;
+}
+#publicite .product-img{
+	float: left;
+	padding: 0 15px;
+}
+#publicite .product-txt{
+	float: left;
+}
+#publicite .product-txt p{
+	margin-bottom: 0;
+}
+#publicite .product-link{
+	text-align: right;
+	height: 25px;
+}
+#publicite .product-link a{
+	color: #3fc9fa;
+	font-size: 13px;
+	text-decoration: underline;
+	margin-right: 20px;
+	line-height: 25px;
+}
+
+/* ****    FOOTER   **** */
+#footer{
+	background: #3fc9fa;
+	height: 33px;
+	text-align: center;
+	line-height: 28px;
+	font-size: 13px;
+	color: #fff;
+}
+#footer a{
+	color: #fff;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 0 10px;
+}
+#footer a:hover{
+	color: #f583e3;
+}
+/* **** Set up **** */
+
+.clear{clear: both;}
