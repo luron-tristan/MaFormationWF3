@@ -39,8 +39,8 @@ class Autoload
 		
 		//--------
 		// En dev, pour constater le chemin parcouru par l'autoload
-		echo '<pre>Autoload : ' . $className . '<br/>';
-		echo '==> require "' . $path . '"</pre>';		
+		//echo '<pre>Autoload : ' . $className . '<br/>';
+		//echo '==> require "' . $path . '"</pre>';		
 		//--------
 			
 		require $path; 

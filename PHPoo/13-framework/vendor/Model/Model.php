@@ -24,8 +24,7 @@ class Model
 		$table = strtolower(str_replace(array('Model\\', 'Model'), '', get_called_class()));
 		// La ligne ci-dessus va transformer 'Model\ArticleModel' en 'article' et stocker ça dans $table. 
 		
-		//return $table; 
-		return 'article';
+		return $table; 
 	}
 	
 	//----------------------------------

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 04 Juillet 2017 à 17:38
+-- Généré le :  Jeu 27 Juillet 2017 à 11:32
 -- Version du serveur :  10.1.13-MariaDB
 -- Version de PHP :  5.6.23
 
@@ -45,16 +45,16 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`id_article`, `reference`, `categorie`, `titre`, `description`, `couleur`, `taille`, `sexe`, `photo`, `prix`, `stock`) VALUES
-(1, 257, 'chemise', 'Chemise blanche femme', 'Chemise blanche en coton', 'blanc', 'xl', 'f', '257_chemise_femme_blanc.jpg', 25.00, 18),
-(2, 175, 'chemise', 'Chemise bleue femme', 'Chemise bleue en coton', 'bleu', 'm', 'f', '175_chemise_femme_bleu.jpg', 43.00, 375),
-(3, 7653, 'chemise', 'Chemise bordeaux femme', 'Chemise bordeaux en coton', 'bordeaux', 'xl', 'f', '7653_chemise_femme_bordeaux.jpg', 45.00, 547),
-(4, 25796, 'chemise', 'Chemise rose femme', 'Chemise rose en coton', 'bleu', 's', 'f', '25796_chemise_femme_rose.jpg', 75.00, 362),
-(5, 2877, 'chemise', 'Chemise rouge femme', 'Chemise rouge en coton', 'rouge', 'xl', 'f', '2877_chemise_femme_rouge.jpg', 24.00, 10),
-(6, 3737, 'chemise', 'Chemise verte femme', 'Chemise verte en coton', 'rouge', 'l', 'f', '3737_chemise_femme_vert.jpg', 57.00, 45),
-(7, 24363, 'pantalon', 'Pantalon rose homme', 'Pantalon rose en lin', 'bleu', 'm', 'm', '24363_pantalon_homme_rose.jpg', 12.00, 200),
-(8, 36727, 'pantalon', 'Pantalon blanc homme', 'Pantalon blanc en lin', 'blanc', 's', 'm', '36727_pantalon_homme_blanc.jpg', 75.00, 6579),
-(9, 347693, 'pantalon', 'Pantalon bordeaux homme', 'Pantalon bordeaux en coton', 'bordeaux', 'l', 'm', '347693_pantalon_homme_bordeaux.jpg', 45.00, 6789),
-(10, 238469, 'pantalon', 'Pantalon vert homme', 'Pantalon vert en lin', 'vert', 'l', 'm', '238469_pantalon_homme_.vertjpg.jpg', 24.00, 5),
+(1, 257, 'chemise', 'Chemise blanche femme', 'Chemise blanche en coton', 'blanc', 'xl', 'f', '257_chemise_femme_blanc.jpg', 25.00, 16),
+(2, 175, 'chemise', 'Chemise bleue femme', 'Chemise bleue en coton (femme non inclue)', 'bleu', 'm', 'f', '175_chemise_femme_bleu.jpg', 43.00, 372),
+(3, 7653, 'chemise', 'Chemise bordeaux femme', 'Chemise bordeaux en coton', 'bordeaux', 'xl', 'f', '7653_chemise_femme_bordeaux.jpg', 45.00, 546),
+(4, 25796, 'chemise', 'Chemise rose femme', 'Chemise rose en coton', 'rose', 's', 'f', '25796_chemise_femme_rose.jpg', 75.00, 362),
+(5, 2877, 'chemise', 'Chemise rouge femme', 'Chemise rouge en coton', 'rouge', 'xl', 'f', '2877_chemise_femme_rouge.jpg', 24.00, 3),
+(6, 3737, 'chemise', 'Chemise verte femme', 'Chemise verte en coton', 'vert', 'l', 'f', '3737_chemise_femme_vert.jpg', 57.00, 45),
+(7, 24363, 'pantalon', 'Pantalon rose homme', 'Pantalon rose en lin', 'rose', 'm', 'm', '24363_pantalon_homme_rose.jpg', 12.00, 200),
+(8, 36727, 'pantalon', 'Pantalon blanc homme', 'Pantalon blanc en lin', 'blanc', 's', 'm', '36727_pantalon_homme_blanc.jpg', 75.00, 6578),
+(9, 347693, 'pantalon', 'Pantalon bordeaux homme', 'Pantalon bordeaux en coton', 'bordeaux', 'l', 'm', '347693_pantalon_homme_bordeaux.jpg', 45.00, 6788),
+(10, 238469, 'pantalon', 'Pantalon vert homme', 'Pantalon vert en lin', 'vert', 'l', 'm', '238469_pantalon_homme_vert.jpg', 24.00, 20),
 (11, 3476387, 'pantalon', 'Pantalon noir homme', 'Pantalon noir en coton', 'noir', 'xl', 'm', '3476387_pantalon_homme_noir.jpg', 54.00, 6762);
 
 -- --------------------------------------------------------
@@ -76,14 +76,17 @@ CREATE TABLE `commande` (
 --
 
 INSERT INTO `commande` (`id_commande`, `id_membre`, `montant`, `date`, `etat`) VALUES
-(1, 1, 202.80, '2017-07-04 15:17:10', 'en cours de traitement'),
-(2, 1, 202.80, '2017-07-04 15:17:36', 'en cours de traitement'),
-(3, 1, 150.00, '2017-07-04 15:19:55', 'en cours de traitement'),
-(4, 1, 30.00, '2017-07-04 16:11:06', 'en cours de traitement'),
-(5, 1, 51.60, '2017-07-04 16:12:04', 'en cours de traitement'),
-(6, 1, 135.60, '2017-07-04 16:53:51', 'en cours de traitement'),
+(1, 1, 202.80, '2017-07-04 15:17:10', 'livré'),
+(2, 1, 202.80, '2017-07-04 15:17:36', 'envoyé'),
+(3, 1, 150.00, '2017-07-04 15:19:55', 'livré'),
+(4, 1, 30.00, '2017-07-04 16:11:06', 'livré'),
+(5, 1, 51.60, '2017-07-04 16:12:04', 'envoyé'),
+(6, 1, 135.60, '2017-07-04 16:53:51', 'envoyé'),
 (7, 1, 90.00, '2017-07-04 17:23:19', 'en cours de traitement'),
-(8, 1, 450.00, '2017-07-04 17:23:27', 'en cours de traitement');
+(8, 1, 450.00, '2017-07-04 17:23:27', 'en cours de traitement'),
+(9, 1, 288.00, '2017-07-05 11:48:27', 'en cours de traitement'),
+(10, 1, 214.80, '2017-07-05 11:50:33', 'en cours de traitement'),
+(12, 1, 54.00, '2017-07-05 15:18:47', 'en cours de traitement');
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,13 @@ INSERT INTO `details_commande` (`id_details_commande`, `id_commande`, `id_articl
 (5, 6, 1, 1, 30.00),
 (6, 6, 3, 1, 54.00),
 (7, 7, 4, 1, 90.00),
-(8, 8, 4, 5, 90.00);
+(8, 8, 4, 5, 90.00),
+(9, 9, 8, 1, 90.00),
+(10, 9, 5, 5, 28.80),
+(11, 9, 9, 1, 54.00),
+(12, 10, 1, 2, 30.00),
+(13, 10, 2, 3, 51.60),
+(16, 12, 3, 1, 54.00);
 
 -- --------------------------------------------------------
 
@@ -188,12 +197,12 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `id_commande` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_commande` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `details_commande`
 --
 ALTER TABLE `details_commande`
-  MODIFY `id_details_commande` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_details_commande` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `membre`
 --

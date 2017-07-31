@@ -4,9 +4,17 @@
 session_start(); 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-//Lancement de l'application (interupteur) : 
-// $app = new Application;
-// $app -> run(); 
+//Lancement de l'application (interrupteur) : 
+$app = new Manager\Application;
+$app -> run(); 
+
+//TEST FINAL :
+//web/index.php?controller=article&action=afficheall
+//web/index.php?controller=article&action=affiche&id=6
+//web/index.php?controller=article&action=categorie&cat=chemise
+
+
+
 
 //TEST 1 : Entity
 // $article = new Entity\Article; 
@@ -67,25 +75,47 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 
 // Test 4 : ArticleModel
-$am = new Model\ArticleModel;
+// $am = new Model\ArticleModel;
 
-$produits = $am -> getAllArticles();
-$produit = $am -> getArticleById(6);
-$categories = $am -> getAllCategories();
-$produit2 = $am -> getAllArticlesByCategorie('Chemise');
+// $produits = $am -> getAllArticles();
+// $produit = $am -> getArticleById(6);
+// $categories = $am -> getAllCategories();
+// $produit2 = $am -> getAllArticlesByCategorie('Chemise');
 
-echo '<pre>';
-print_r($produit2);
-echo '</pre>'; 
+// echo '<pre>';
+// print_r($produit2);
+// echo '</pre>'; 
 
+// TEST 5 : ArticleController
+// $ac = new Controller\ArticleController;
+// $ac -> afficheAll();
+// $ac -> affiche(6); 
+// $ac -> categorie('chemise');
 
+// TEST 6 : URL 
+// if(isset($_GET['controller'])){
+	// $controller = 'Controller\\' . ucfirst($_GET['controller']) . 'Controller';
+	// $a = new $controller; 
 
+	// $action = $_GET['action']; 
+	// if(isset($_GET['id']))
+	// {
+		// $param = $_GET['id'];
+	// }
+	// elseif(isset($_GET['cat'])){
+		// $param = $_GET['cat'];
+	// }
+	// else{
+		// $param = '';
+	// }
+	
 
-
-
-
-
-
+	// $a -> $action($param);
+// }
+// else{
+	// $a = new Controller\ArticleController;
+	// $a -> afficheAll(); 
+// }
 
 
 
