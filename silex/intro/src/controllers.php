@@ -1,4 +1,5 @@
 <?php
+//************* Controller : Définition de la route ****************//
 
 use Controller\DemoController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,7 @@ $app -> get('/test', function() use ($app) {
 ;
 
 // $app->match() crée une nouvelle route accessible en GET et en POST
-// $app->post() crée une nouvelle route accessible en POST (uniquement)
+// $app->post() crée une nouvelle route accessible en POST (uniquement) (appel AJAX par exemple)
 $app->match('/twig', function() use($app) {
     return $app['twig']->render(
         'twig.html.twig', // Nom de la vue à rendre
@@ -62,11 +63,53 @@ $app
     ->bind('hello')
 ;
 
+$app
+    ->get('/abonnes', 'bibliotheque.controller:abonnesAction')
+    ->bind('abonnes')
+;
+
+$app
+    ->get('/abonne/{id}', 'bibliotheque.controller:abonneDetailAction')
+    ->assert('id', '\d+') // la variable id dans l'url doit être un nombre
+    ->bind('abonne_detail')
+;
+
+$app
+    ->match('/abonne/ajout', 'bibliotheque.controller:abonneAjoutAction')
+    ->bind('abonne_ajout')
+;
+
+$app
+    ->match('/abonne/modif/{id}', 'bibliotheque.controller:abonneModifAction')
+    ->assert('id', '\d+') // la variable id dans l'url doit être un nombre
+    ->bind('abonne_modif')
+;
+
+$app
+    ->get('/abonne/supprimer/{id}', 'bibliotheque.controller:abonneSupprimerAction')
+    ->assert('id', '\d+') // la variable id dans l'url doit être un nombre
+    ->bind('abonne_suppression')
+;
+
+$app
+    ->get('/abonnes/emprunts', 'bibliotheque.controller:abonnesEmpruntsAction')
+    ->bind('abonnes_emprunts')
+;
+
+
+
+
+
+
+
+//************* Erreurs *************//
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }
 
+
+    
     // 404.html, or 40x.html, or 4xx.html, or error.html
     $templates = array(
         'errors/'.$code.'.html.twig',

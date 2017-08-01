@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+{#     <pre>{{ dump(abonnes_emprunts) }}</pre>#}
+        <table>
+            <thead>
+                <th>Id emprunt</th>
+                <th>Prénom</th>
+                <th>Auteur</th>
+                <th>Titre</th>
+                <th>Date sortie</th>
+                <th>Date rendu</th>
+            </thead>
+            {% for emprunt in abonnes_emprunts %}
+            <tr>
+                <td>{{emprunt.id_emprunt}}</td>
+                <td>{{emprunt.prenom}}</td>
+                <td>{{emprunt.auteur}}</td>
+                <td>{{emprunt.titre}}</td>
+                <td>{{emprunt.date_sortie|date('d/m/Y')}}</td>
+                
+                {% if emprunt.date_rendu is not empty %}
+                <td>{{emprunt.date_rendu|date('d/m/Y')}}</td>
+                {% else %}
+                <td></td>
+                {% endif %}
+                
+            </tr>
+       {% endfor %}
+    </table>
+{% endblock %}

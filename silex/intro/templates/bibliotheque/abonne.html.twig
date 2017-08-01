@@ -1,0 +1,8 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+{#    <pre>{{ dump(abonne) }}</pre>#}
+    Id abonne : {{abonne.id_abonne}}<br>
+    Prénom : {{abonne.prenom}}<br><br>
+    <a href='{{path('abonnes')}}'>Retour vers la liste</a>
+{% endblock %}

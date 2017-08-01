@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {# <pre>{{ dump(abonnes) }}</pre> #}
+    {# construire un tableau html contenant les abonnés #}
+    <table>
+        <thead>
+            <th>Id membre</th>
+            <th>Prénom</th>
+            <th></th>
+        </thead>
+    {% for abonne in abonnes %}
+        <tr>
+            <td>{{abonne['id_abonne']}}</td>
+            <td>{{abonne.prenom}}</td>
+            <td>
+                <a href='{{path('abonne_detail', {id: abonne.id_abonne}) }}'>Détails</a>
+                <a href='{{path('abonne_modif', {id: abonne.id_abonne}) }}'>Modifier</a>
+                <a href='{{path('abonne_suppression', {id: abonne.id_abonne}) }}'>Supprimer</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    <p><a href='{{ path('abonne_ajout') }}'>Ajouter un abonné</a></p>
+
+{% endblock %}
+
