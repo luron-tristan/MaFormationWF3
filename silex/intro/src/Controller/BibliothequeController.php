@@ -127,6 +127,17 @@ class BibliothequeController
 //             ORDER BY id_emprunt'
 //        );
         
+        $query = <<<EOS
+SELECT *
+FROM emprunt e
+JOIN livre l USING(id_livre)
+JOIN abonne a  USING(id_abonne)
+ORDER BY date_sortie        
+EOS;
+       
+        $abonnes_emprunts = $app['db']->fetchAll($query);
+            
+        /*
         $abonnes_emprunts = $app['db']->fetchAll(
             'SELECT e.id_emprunt, a.prenom, l.auteur, l.titre, e.date_sortie, e.date_rendu
              FROM abonne a, emprunt e, livre l
@@ -134,6 +145,7 @@ class BibliothequeController
              AND e.id_livre = l.id_livre
              ORDER BY id_emprunt'
         );
+         * */
         
         return $app['twig']->render(
             'bibliotheque/abonnes_emprunts.html.twig', 

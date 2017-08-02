@@ -370,3 +370,10 @@ b29ebc,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/
 61fb76,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501601151,,200
 1010bc,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501601255,,200
 7f00a9,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501601283,,200
+ee1d14,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes,1501660470,,200
+719b05,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/emprunts,1501660473,,404
+490f12,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501660502,,200
+fc65e5,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501660940,,200
+cc46ef,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501660942,,200
+3a9642,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes/emprunts,1501667733,,200
+c5f594,::1,GET,http://localhost/FORMATION/silex/intro/web/index_dev.php/abonnes,1501667738,,200

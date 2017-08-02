@@ -21,29 +21,29 @@ class __TwigTemplate_8485b763b27004861bfbaed19345ec68969de0a3f108b1fc7bbfb999456
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ce38ac21af1c36b31ce18c7527e56b134193d615aad50e4ba8cbdc0cff2a87da = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ce38ac21af1c36b31ce18c7527e56b134193d615aad50e4ba8cbdc0cff2a87da->enter($__internal_ce38ac21af1c36b31ce18c7527e56b134193d615aad50e4ba8cbdc0cff2a87da_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "bibliotheque/abonnes_emprunts.html.twig"));
+        $__internal_437d6fb3607e9229140f45226437ea2ff0a629267d48d3d82a53d851c2e2c10e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_437d6fb3607e9229140f45226437ea2ff0a629267d48d3d82a53d851c2e2c10e->enter($__internal_437d6fb3607e9229140f45226437ea2ff0a629267d48d3d82a53d851c2e2c10e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "bibliotheque/abonnes_emprunts.html.twig"));
 
-        $__internal_6dafc7a5e7e373d71e3408c5d27f8e53c07305b8ee8f3a17d0a3fb13643778b6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_6dafc7a5e7e373d71e3408c5d27f8e53c07305b8ee8f3a17d0a3fb13643778b6->enter($__internal_6dafc7a5e7e373d71e3408c5d27f8e53c07305b8ee8f3a17d0a3fb13643778b6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "bibliotheque/abonnes_emprunts.html.twig"));
+        $__internal_9b4883cf7848824fc189a5a3eff0425fe775d50b312b6828f60c2379bdc45f0e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_9b4883cf7848824fc189a5a3eff0425fe775d50b312b6828f60c2379bdc45f0e->enter($__internal_9b4883cf7848824fc189a5a3eff0425fe775d50b312b6828f60c2379bdc45f0e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "bibliotheque/abonnes_emprunts.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ce38ac21af1c36b31ce18c7527e56b134193d615aad50e4ba8cbdc0cff2a87da->leave($__internal_ce38ac21af1c36b31ce18c7527e56b134193d615aad50e4ba8cbdc0cff2a87da_prof);
+        $__internal_437d6fb3607e9229140f45226437ea2ff0a629267d48d3d82a53d851c2e2c10e->leave($__internal_437d6fb3607e9229140f45226437ea2ff0a629267d48d3d82a53d851c2e2c10e_prof);
 
         
-        $__internal_6dafc7a5e7e373d71e3408c5d27f8e53c07305b8ee8f3a17d0a3fb13643778b6->leave($__internal_6dafc7a5e7e373d71e3408c5d27f8e53c07305b8ee8f3a17d0a3fb13643778b6_prof);
+        $__internal_9b4883cf7848824fc189a5a3eff0425fe775d50b312b6828f60c2379bdc45f0e->leave($__internal_9b4883cf7848824fc189a5a3eff0425fe775d50b312b6828f60c2379bdc45f0e_prof);
 
     }
 
     // line 3
     public function block_content($context, array $blocks = array())
     {
-        $__internal_323c235f752e002d6d33bb09ab2342cee951cda86f4e60a071f48a5e3cb4cff3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_323c235f752e002d6d33bb09ab2342cee951cda86f4e60a071f48a5e3cb4cff3->enter($__internal_323c235f752e002d6d33bb09ab2342cee951cda86f4e60a071f48a5e3cb4cff3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_87ebb70393a682907e9389c944f42d7789738be3df849e2bc8c481ab20371a1d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_87ebb70393a682907e9389c944f42d7789738be3df849e2bc8c481ab20371a1d->enter($__internal_87ebb70393a682907e9389c944f42d7789738be3df849e2bc8c481ab20371a1d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        $__internal_9bfa6de5484d53770e1024b9526356cde60e3f4c12a3f181e5909bbf2ce808bc = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9bfa6de5484d53770e1024b9526356cde60e3f4c12a3f181e5909bbf2ce808bc->enter($__internal_9bfa6de5484d53770e1024b9526356cde60e3f4c12a3f181e5909bbf2ce808bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_78c57d3cc49cf2dbb0f61dd3488a5bc999970a5498f284a755e60503be5cf346 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_78c57d3cc49cf2dbb0f61dd3488a5bc999970a5498f284a755e60503be5cf346->enter($__internal_78c57d3cc49cf2dbb0f61dd3488a5bc999970a5498f284a755e60503be5cf346_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 5
         echo "        <table>
@@ -82,34 +82,36 @@ class __TwigTemplate_8485b763b27004861bfbaed19345ec68969de0a3f108b1fc7bbfb999456
             // line 20
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["emprunt"], "date_sortie", array()), "d/m/Y"), "html", null, true);
             echo "</td>
+                
                 ";
-            // line 21
+            // line 22
             if ( !twig_test_empty($this->getAttribute($context["emprunt"], "date_rendu", array()))) {
-                // line 22
+                // line 23
                 echo "                <td>";
                 echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["emprunt"], "date_rendu", array()), "d/m/Y"), "html", null, true);
                 echo "</td>
                 ";
             } else {
-                // line 24
+                // line 25
                 echo "                <td></td>
                 ";
             }
-            // line 26
-            echo "            </tr>
+            // line 27
+            echo "                
+            </tr>
        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['emprunt'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
+        // line 30
         echo "    </table>
 ";
         
-        $__internal_9bfa6de5484d53770e1024b9526356cde60e3f4c12a3f181e5909bbf2ce808bc->leave($__internal_9bfa6de5484d53770e1024b9526356cde60e3f4c12a3f181e5909bbf2ce808bc_prof);
+        $__internal_78c57d3cc49cf2dbb0f61dd3488a5bc999970a5498f284a755e60503be5cf346->leave($__internal_78c57d3cc49cf2dbb0f61dd3488a5bc999970a5498f284a755e60503be5cf346_prof);
 
         
-        $__internal_323c235f752e002d6d33bb09ab2342cee951cda86f4e60a071f48a5e3cb4cff3->leave($__internal_323c235f752e002d6d33bb09ab2342cee951cda86f4e60a071f48a5e3cb4cff3_prof);
+        $__internal_87ebb70393a682907e9389c944f42d7789738be3df849e2bc8c481ab20371a1d->leave($__internal_87ebb70393a682907e9389c944f42d7789738be3df849e2bc8c481ab20371a1d_prof);
 
     }
 
@@ -125,7 +127,7 @@ class __TwigTemplate_8485b763b27004861bfbaed19345ec68969de0a3f108b1fc7bbfb999456
 
     public function getDebugInfo()
     {
-        return array (  106 => 28,  99 => 26,  95 => 24,  89 => 22,  87 => 21,  83 => 20,  79 => 19,  75 => 18,  71 => 17,  67 => 16,  64 => 15,  60 => 14,  49 => 5,  40 => 3,  11 => 1,);
+        return array (  108 => 30,  100 => 27,  96 => 25,  90 => 23,  88 => 22,  83 => 20,  79 => 19,  75 => 18,  71 => 17,  67 => 16,  64 => 15,  60 => 14,  49 => 5,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -158,11 +160,13 @@ class __TwigTemplate_8485b763b27004861bfbaed19345ec68969de0a3f108b1fc7bbfb999456
                 <td>{{emprunt.auteur}}</td>
                 <td>{{emprunt.titre}}</td>
                 <td>{{emprunt.date_sortie|date('d/m/Y')}}</td>
+                
                 {% if emprunt.date_rendu is not empty %}
                 <td>{{emprunt.date_rendu|date('d/m/Y')}}</td>
                 {% else %}
                 <td></td>
                 {% endif %}
+                
             </tr>
        {% endfor %}
     </table>

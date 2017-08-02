@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block title 'Admin rubriques' %}
+    
+{% block content %}
+    <h1>Gestion rubriques</h1>
+    
+    <table class='table'>
+        <tr>
+            <td>Id</td>
+            <td>Nom</td>
+        </tr>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock %}
