@@ -19,7 +19,10 @@
                 <a class='navbar-brand'>Menu admin</a>
                 <ul class='nav navbar-nav'>
                     <li>
-                        <a href='{{ path('homepage') }}'>Gestion rubriques</a>
+                        <a href='{{ path('admin_categories') }}'>Gestion rubriques</a>
+                    </li>
+                    <li>
+                        <a href='{{ path('article_list') }}'>Gestion articles</a>
                     </li>
                 </ul>
             </div>
@@ -33,6 +36,15 @@
         </nav>
         
         <div class='container'>
+            {% for type, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    {% if type == 'error' %}
+                        {# classe alert-danger du bootstrap #}
+                        {% set type = 'danger' %}
+                    {% endif %}
+                    <div class='alert alert-{{type}}'>{{ flash|raw }}</div>
+                {% endfor %}
+            {% endfor %}
             {% block content %}{% endblock %}
         </div>
         

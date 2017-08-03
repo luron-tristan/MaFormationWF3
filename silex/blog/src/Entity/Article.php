@@ -2,7 +2,12 @@
 
 namespace Entity;
 
-class Category {
+/**
+ * Description of Article
+ *
+ * @author Hello
+ */
+class Article {
     /**
      * @var int
      */
@@ -39,6 +44,4 @@ class Category {
         $this->name = $name;
         return $this;
     }
-
-
 }

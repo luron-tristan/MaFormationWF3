@@ -1,14 +1,17 @@
 <?php
 
+use Controller\Admin\ArticleController;
+use Controller\Admin\CategoryController as CategoryController2;
 use Controller\CategoryController;
 use Controller\IndexController;
+use Repository\CategoryRepository;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Repository\CategoryRepository;
 
 $app = new Application();
 $app->register(new ServiceControllerServiceProvider());
@@ -38,26 +41,42 @@ $app->register(
         ]
 );
 
+// $app['session'] = gestionnaire de session de symfony
+$app->register(new SessionServiceProvider());
+
 /* CONTROLLERS */
 
 /* Front */
 $app['index.controller'] = function() use($app){
-    return new \Controller\IndexController($app);
+    return new IndexController($app);
 };
 
 $app['category.controller'] = function() use($app){
-    return new \Controller\CategoryController($app);
+    return new CategoryController($app);
 };
+
+
+
+/* Articles */
+$app['article.controller'] = function() use($app){
+    return new ArticleController($app);
+};
+
+
 
 /* Back */
 
 $app['admin.category.controller'] = function() use($app){
-    return new \Controller\Admin\CategoryController($app);
+    return new CategoryController2($app);
 };
 
 /* REPOSITORIES */
 $app['category.repository'] = function() use($app){
-    return new Repository\CategoryRepository($app);
+    return new CategoryRepository($app);
+};
+
+$app['article.repository'] = function() use($app){
+    return new CategoryRepository($app);
 };
 
 return $app;
