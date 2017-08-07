@@ -20,6 +20,8 @@ $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
+    // Pour accéder au UserManager dans les templates twig
+    $twig->addGlobal('user_manager', $app['user.manager']);
 
     return $twig;
 });
@@ -55,10 +57,19 @@ $app['category.controller'] = function() use($app){
     return new CategoryController($app);
 };
 
+$app['user.controller'] = function() use($app){
+    return new Controller\UserController($app);
+};
 
+/*****************************************************************************/
+$app['article.controller'] = function() use($app){
+    return new Controller\ArticleController($app);
+}
+;
+/*****************************************************************************/
 
 /* Articles */
-$app['article.controller'] = function() use($app){
+$app['admin.article.controller'] = function() use($app){
     return new ArticleController($app);
 };
 
@@ -76,7 +87,18 @@ $app['category.repository'] = function() use($app){
 };
 
 $app['article.repository'] = function() use($app){
-    return new CategoryRepository($app);
+    return new Repository\ArticleRepository($app);
 };
+
+$app['user.repository'] = function() use($app){
+    return new Repository\UserRepository($app);
+};
+
+/* AUTRES SERVICES */
+$app['user.manager'] = function() use($app){
+    return new Service \UserManager($app['session']);
+};
+
+
 
 return $app;

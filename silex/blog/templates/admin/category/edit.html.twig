@@ -3,7 +3,7 @@
 {% block title 'Edition rubrique' %}
     
 {% block content %}
-    <h1>{% if category.id %}Modification{%else%}Nouvelle{% endif%} %} rubrique</h1>
+    <h1>{% if category.id %}Modification{%else%}Nouvelle{% endif%} rubrique</h1>
     
     <form method='post'>
         <div class='form-group'>
@@ -14,4 +14,4 @@
         <a href="{{ path('admin_categories') }}" class="btn btn-default">Annuler</a>
     </form>
     
-{% endblock %}
+{% endblock %}{# empty Twig template #}

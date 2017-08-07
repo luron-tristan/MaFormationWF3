@@ -2,11 +2,12 @@
 namespace Repository;
 
 use Entity\Article;
+use Entity\Category;
 
 class ArticleRepository extends RepositoryAbstract
 {
     protected function getTable() {
-        return 'category';
+        return 'article';
     }
     
     /**
@@ -15,14 +16,26 @@ class ArticleRepository extends RepositoryAbstract
      */
     public function findAll()
     {
-        $dbArticles = $this->db->fetchAll('SELECT * FROM article');
+        $query = 'SELECT a.*, c.name FROM article a'
+            . ' JOIN category c ON a.category_id = c.id'
+        ;
+        
+        /* Syntaxe heredoc
+        $query = <<<EOS
+SELECT * FROM article a
+JOIN category c ON a.category_id = c.id
+EOS;
+        */
+        
+        
+        $dbArticles = $this->db->fetchAll($query);
         
         $articles = [];
         
         foreach ($dbArticles as $dbArticle)
         {
             
-            $article = $this->buildEntity($dbCategory);
+            $article = $this->buildEntity($dbArticle);
             
             $articles[] = $article;
         }
@@ -37,11 +50,14 @@ class ArticleRepository extends RepositoryAbstract
      */
     public function find($id)
     {
+        $query = 'SELECT a.*, c.name FROM article a'
+            . ' JOIN category c ON a.category_id = c.id'
+            . ' WHERE a.id = :id'
+        ;
+        
         $dbArticle = $this->db->fetchAssoc(
-            'SELECT * FROM article WHERE id = :id',
-            [
-                ':id' => $id
-            ]
+            $query,
+            [':id' => $id]
         );
         
         if(!empty($dbArticle))
@@ -53,7 +69,12 @@ class ArticleRepository extends RepositoryAbstract
     public function save(Article $article)
     {
         // Les données à enregistrer en bdd
-        $data = ['name' => $article->getName()];
+        $data = [
+                    'title' => $article->getTitle(),
+                    'header' => $article->getHeader(),
+                    'content' => $article->getContent(),
+                    'category_id' => $article->getCategoryId()
+                ];
         
         // Si la catégorie a un id, on est en update
         // sinon, en insert
@@ -79,6 +100,26 @@ class ArticleRepository extends RepositoryAbstract
         );
     }
     
+    public function findByCategory(Category $category){
+         $query = 'SELECT a.*, c.name FROM article a'
+            . ' JOIN category c ON a.category_id = c.id'
+            . ' WHERE c.id = :id';
+
+        $dbArticles = $this->db->fetchAll($query,          [
+                    ':id' => $category->getId()
+                ]  );
+        
+        $articles = [];
+        
+        foreach ($dbArticles as $dbArticle)
+        {
+            $article[] = $this->buildEntity($dbArticle);
+        }
+        
+        return $articles;
+    }
+
+
     /**
      * Crée un objet Entity\Article 
      * à partir d'un tableau de données venant de la bdd
@@ -88,11 +129,21 @@ class ArticleRepository extends RepositoryAbstract
      */
     private function buildEntity(array $data)
     {
+        $category = new Category();
+        
+        $category
+            ->setId($data['category_id'])
+            ->setName($data['name'])
+        ;
+        
         $article = new Article();
         
         $article
             ->setId($data['id'])
-            ->setName($data['name'])
+            ->setTitle($data['title'])
+            ->setHeader($data['header'])
+            ->setContent($data['content'])
+            ->setCategory($category)
         ;
         
         return $article;

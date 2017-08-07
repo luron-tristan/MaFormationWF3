@@ -1,0 +1,7 @@
+{% extends "layout.html.twig" %}
+    
+{% block content %}
+    <h1>{{ article.title }} <small>{{ article.categoryName }}</small></h1>
+    <p><b>{{ article.header }}</b></p>
+    <p>{{ article.content }}</p>
+{% endblock %}

@@ -2,9 +2,6 @@
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
@@ -25,10 +22,56 @@ $app
     ->bind('category_list')
 ;
 
+$app
+    ->match('/utilisateur/inscription', 'user.controller:registerAction')
+    ->bind('user_register')
+;
+
+$app
+    ->match('/utilisateur/connexion', 'user.controller:loginAction')
+    ->bind('user_login')
+;
+
+$app
+    ->match('/utilisateur/deconnexion', 'user.controller:logoutAction')
+    ->bind('user_logout')
+;
+
+$app
+    ->get('/rubrique/{id}', 'category.controller:indexAction')
+    ->assert('id', '\d+') // id doit être un nombre
+    ->bind('category_index')
+;
+
+
+/*****************************************************************************/
+// Créer la page article dans une action d'un controller ArticleController
+// et ajouter le lien dans chacun des éléments des listes d'articles
+$app
+    ->match('/article/{id}', 'article.controller:indexAction')
+    ->assert('id', '\d+')
+    ->bind('article_index')
+;
+
+/*****************************************************************************/
+
+
+
+
 /* BACK */
 
 // Crée un groupe de routes
 $admin = $app['controllers_factory'];
+
+/*
+ * Pour toutes les routes du groupe,
+ * si on n'est pas connecté en admin, on se prend une 403
+ */
+$admin->before(function() use ($app) {
+    if(!$app['user.manager']->isAdmin()) {
+        $app->abort(403, 'Accès refusé');
+    }
+});
 
 // toutes les routes définies par $admin
 // auront une url commençant pas /admin sans avoir à l'ajouter dans chaque route
@@ -66,11 +109,25 @@ $admin
  * remplir la méthode listAction() en utilisant ArticleRepository
  * faire l'affichage en tabeau html dans la vue
  */
+/* Article */
 
-$app
-    ->get('/article/liste', 'article.controller:listAction')
-    ->bind('article_list')
+$admin
+    ->get('/article', 'admin.article.controller:listAction')
+    ->bind('admin_articles')
 ;
+
+$admin
+    ->match('/article/edition/{id}', 'admin.article.controller:editAction')
+    ->value('id', null) // valeur par défaut pour l'id, la route matche même sans id
+    ->bind('admin_article_edit')
+;
+
+$admin
+    ->get('/article/suppression/{id}', 'admin.article.controller:deleteAction')
+    ->assert('id', '\d+') // id doit être un nombre
+    ->bind('admin_article_delete')
+;
+
 
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

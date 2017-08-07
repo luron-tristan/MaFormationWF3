@@ -5,25 +5,29 @@
 {% block content %}
     <h1>Gestion articles</h1>
     
-{#    <p><a href='{{ path('admin_articles_edit') }}'>Nouvel article</a></p>#}
+    <p><a href='{{ path('admin_article_edit') }}'>Nouvel article</a></p>
     
     <table class='table table-striped table-hover text-center'>
         <tr>
             <th class='text-center'>Id</th>
-            <th class='text-center'>Nom</th>
+            <th class='text-center'>Titre</th>
+            <th class='text-center'>En-tête</th>
+            <th class='text-center'>Rubrique</th>
             <th class='text-center' width='200px'></th>
         </tr>
         {% for article in articles %}
             <tr>
                 <td>{{ article.id }}</td>
-                <td>{{ article.name }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.header }}</td>
+                <td>{{ article.categoryName }}</td>
                 <td>
-{#                    <a href='{{ path('admin_category_edit', {id: article.id}) }}' #}
-{#                    class='btn btn-primary'>#}
+                    <a href='{{ path('admin_article_edit', {id: article.id}) }}' 
+                    class='btn btn-primary'>
                         Modifier
                     </a>
-{#                    <a href='{{ path('admin_category_delete', {id: article.id}) }}' #}
-{#                    class='btn btn-danger'>#}
+                    <a href='{{ path('admin_article_delete', {id: article.id}) }}' 
+                    class='btn btn-danger'>
                         Supprimer
                     </a>
                 </td>
