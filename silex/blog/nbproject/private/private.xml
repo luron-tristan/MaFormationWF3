@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/user/register.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/admin/category/list.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Service/UserManager.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Controller/ArticleController.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/category/list.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/category/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/app.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Repository/ArticleRepository.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Controller/IndexController.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/layout.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/admin/article/list.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Controller/CategoryController.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/Controller/Admin/ArticleController.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/article/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/src/controllers.php</file>
+            <file>file:/C:/xampp/htdocs/FORMATION/silex/blog/templates/article_list.html.twig</file>
+        </group>
+    </open-files>
+</project-private>
